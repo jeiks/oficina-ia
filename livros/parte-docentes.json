@@ -1,0 +1,10 @@
+{
+    "pages": [
+        "<h2>5 elementos básicos da criação de comandos de IA</h2><p>Um comando é escrito com base em 5 elementos básicos.</p><p>Para se lembrar de todos, pense em cada \"PARTE\" de um comando:<ul><li><b>P</b>erfil</li><li><b>A</b>lvo</li><li><b>R</b>ecebedores</li><li><b>T</b>ema</li><li><b>E</b>strutura</li></ul>",
+        "<h2>1. Perfil: informe seu cargo.</h2>Defina uma função ou perfil. Exemplos:<ul><li>Faço parte da liderança do departamento de matemática e estou analisando brechas de recursos</li><li>Dou aula de espanhol e estou desenvolvendo atividades sobre imersão cultural</li><li>Sou líder de tecnologia e estou treinando educadores sobre como usar ferramentas digitais</li></ul>",
+        "<h2>2. Alvo: defina seu objetivo.</h2>Exemplos:<ul><li>Liderança do departamento de matemática: elaboração de uma proposta de subsídio para pleitear mais recursos.</li><li>Objetivo do professor de espanhol: atualizar um plano de aula para conectar mais o idioma com a cultura e melhorar a compreensão.</li><li>Líder de tecnologia: modificar uma atividade com níveis variados de <i>scaffolding</i> para promover o aprendizado personalizado.</li></ul>",
+        "<h2>3. Recebedores: especifique o público.</h2>Exemplos:<ul><li>Tesouraria da escola.</li><li>Estudantes do segundo ano que estudaram espanhol durante pelo menos quatro anos.</li><li>Professores do 9° ano especializados em educação inclusiva.</li></ul>",
+        "<h2>4. Tema: descreva o estilo, o tom e outros parâmetros necessários.</h2>As ferramentas de IA são mais eficazes quando você oferece limites claros.<br>Exemplos:<ul><li>Use uma voz formal.</li><li>Escreva no máximo 50 palavras.</li><li>Inclua referências à cultura pop e seja informativa e animada.</li></ul>",
+        "<h2>5. Estrutura: defina o formato de saída desejado.</h2>Exemplos:<ul><li>Os resultados da IA podem ser formatados em tópicos, código e até mesmo emojis.</li><li>Você pode solicitar metáforas ou analogias, esboços ou gráficos, testes ou jogos.</li></ul>"
+    ]
+}

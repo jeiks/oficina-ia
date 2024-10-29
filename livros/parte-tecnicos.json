@@ -1,0 +1,15 @@
+{
+    "pages": [
+        "<h2>5 elementos básicos da criação de comandos de IA</h2><p>Um comando é escrito com base em 5 elementos básicos.</p><p>Para se lembrar de todos, pense em cada \"PARTE\" de um comando:<ul><li><b>P</b>erfil</li><li><b>A</b>lvo</li><li><b>R</b>ecebedores</li><li><b>T</b>ema</li><li><b>E</b>strutura</li></ul>",
+
+        "<h2>1. Perfil: informe seu cargo.</h2><p>Defina sua função ou perfil. Exemplos:</p><ul><li>Faço parte da equipe de planejamento e gestão e estou organizando o calendário de reuniões do semestre.</li><li>Trabalho no setor de protocolos e estou padronizando a documentação administrativa.</li><li>Sou responsável pelo suporte acadêmico e estou desenvolvendo instruções sobre o uso do sistema de matrícula online.</li></ul>",
+
+        "<h2>2. Alvo: defina seu objetivo.</h2><p>Exemplos:</p><ul><li>Equipe de planejamento: elaborar um cronograma consolidado de reuniões e prazos internos.</li><li>Setor de protocolos: criar templates automáticos para memorandos e ofícios internos.</li><li>Suporte acadêmico: preparar um manual simplificado para orientar alunos e professores no uso do SIGAA.</li></ul>",
+
+        "<h2>3. Recebedores: especifique o público.</h2><p>Exemplos:</p><ul><li>Coordenações dos cursos de graduação e pós-graduação.</li><li>Servidores administrativos que realizam o registro de documentos.</li><li>Alunos recém-ingressos que precisam de orientações sobre matrícula.</li></ul>",
+
+        "<h2>4. Tema: descreva o estilo, o tom e outros parâmetros.</h2><p>As ferramentas de IA são mais eficazes quando você oferece limites claros.</p><p>Exemplos:</p><ul><li>Use uma linguagem clara e objetiva.</li><li>Mantenha o texto formal e com tom institucional.</li><li>Limite a resposta a um parágrafo para comunicados internos rápidos.</li><li>Inclua instruções passo a passo quando necessário.</li></ul>",
+
+        "<h2>5. Estrutura: defina o formato de saída desejado.</h2><p>Exemplos:</p><ul><li>Criação de listas de tarefas ou checklists organizacionais.</li><li>Geração de e-mails formais com saudação e assinatura padrão.</li><li>Desenvolvimento de templates prontos para documentos internos.</li><li>Elaboração de instruções curtas com numeradores para orientar o uso de sistemas.</li></ul>"
+    ]
+}

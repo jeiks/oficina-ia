@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Uso da IA",
+        "author": "Ajuda no Trabalho Docente",
+        "cover": "../imgs/capa-dicas-1.jpg",
+        "file": "../livros/dicas-docentes-1.json"
+    },
+    {
+        "title": "Ética com IA",
+        "author": "Limitações da IA",
+        "cover": "../imgs/capa-etica.jpg",
+        "file": "../livros/etica-limitacao.json"
+    },
+    {
+        "title": "PARTE",
+        "author": "Comandos certos",
+        "cover": "../imgs/capa-parte.jpg",
+        "file": "../livros/parte-docentes.json"
+    },
+    {
+        "title": "Shots",
+        "author": "Exemplos",
+        "cover": "../imgs/capa-shots.jpg",
+        "file": "../livros/shots-docentes.json"
+    },
+    {
+        "title": "Resumo",
+        "author": "Trabalhando com IA",
+        "cover": "../imgs/capa-resumo.jpg",
+        "file": "../livros/resumo.json"
+    }
+]
+

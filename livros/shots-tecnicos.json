@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "<h2>Exemplos: shots</h2><p>Uma abordagem popular envolve incluir exemplos, muitas vezes chamados de \"shots\", que ajudam as ferramentas de IA a entender melhor a saída esperada.</p><p> Os comandos são organizados por quantidade de exemplos: zero, um ou alguns. Além disso, existem os comandos de cadeia de pensamento (COT, na sigla em inglês).</p>",
+
+        "<h2>Zero-Shot</h2><p>Trabalho no setor de comunicação da universidade. Preciso divulgar o prazo final para submissão de projetos de pesquisa internos. Gere um aviso claro e objetivo, com no máximo 25 palavras, para ser colocado nos murais dos blocos acadêmicos.</p>",
+
+        "<h2>One-Shot:</h2><p>Faço parte da equipe de apoio ao aluno. Sugira maneiras de orientar estudantes recém-ingressos que estão com dificuldades no uso do sistema de matrícula. Exemplos de suporte eficaz: [fornecer tutoriais rápidos e promover encontros presenciais para tirar dúvidas.]</p>",
+
+        "<h2>Few-Shot:</h2><p>Sou responsável pelo setor de eventos da universidade e estou organizando uma semana de integração. Preciso de ideias para atividades que envolvam os novos alunos.<br>Exemplos:<br>* Ponto de encontro: crie um espaço para os estudantes socializarem. Ofereça um café da manhã informal.<br>* Gincana de integração: planeje uma dinâmica interativa com prêmios simbólicos para promover o engajamento.</p>",
+
+        "<h2>COT:</h2><p>Trabalho no setor de protocolos e gestão de documentos. Preciso implementar cinco melhorias no fluxo de tramitação digital de processos internos. Descreva cada etapa para otimizar o processo e reduzir atrasos.</p><i>Este comando pode ser classificado como COT porque pede para a ferramenta de IA pensar por etapas. Embora o comando peça cinco melhorias, ele não oferece exemplos específicos. Apesar disso, ele não é classificado como zero-shot porque solicita uma sequência lógica de etapas.</i>"
+    ]
+}

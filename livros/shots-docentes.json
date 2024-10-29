@@ -1,0 +1,9 @@
+{
+    "pages": [
+        "<h2>Exemplos: shots</h2><p>Uma abordagem popular envolve incluir exemplos, muitas vezes chamados de \"shots\", que ajudam as ferramentas de IA a entender melhor a saída esperada.</p><p> Os comandos são organizados por quantidade de exemplos: zero, um ou alguns. Além disso, existem os comandos de cadeia de pensamento (COT, na sigla em inglês).</p>",
+        "<h2>Zero-Shot</h2><p>Dou aula de teatro para o ensino fundamental II. Preciso divulgar as audições da nossa peça de inverno aos novos estudantes do 6º ano. Gere folhetos cativantes com, no máximo, 25 palavras que possam ser distribuídos nas paredes da escola.</p>",
+        "<h2>One-Shot:</h2><p>Dou aula de literatura para o ensino médio. Sugira formas de motivar e envolver os estudantes da minha turma que têm dificuldade em leitura. Exemplos de textos de alto interesse: [selecione materiais de leitura que se alinhem com os interesses, culturas e origens dos estudantes.]</p>",
+        "<h2>Few-Shot:</h2><p>Dou aula de ciências do ambiente e estou planejando tarefas para uma excursão a uma bacia hidrográfica. Preciso de ajuda para planejar atividades para essa excursão.<br>Exemplos:<br>* Selfie na bacia hidrográfica: tire uma foto. Escreva uma legenda explicando a função dela.<br>* Amostragem de água: colete uma amostra. Reúna informações sobre temperatura e pH.",
+        "<h2>COT:</h2><p>Sou professor do ensino médio. Alguns dos meus estudantes têm dificuldade em gerenciar o tempo. Preciso de cinco estratégias que eu possa usar na minha sala de aula para ajudar esses alunos. Descreva cada etapa.</p><i>Este comando pode ser classificado como COT porque pede para a ferramenta de IA pensar por etapas. Embora o comando peça cinco estratégias, ele não oferece exemplos. Apesar disso, ele não é classificado como zero-shot porque pede que a ferramenta de IA pense por etapas.</i>"
+    ]
+}
