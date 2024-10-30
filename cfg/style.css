@@ -72,6 +72,7 @@ body {
     backface-visibility: hidden;
     color: black;
     cursor: pointer;
+    user-select: none;
 }
 
 .page:hover {
