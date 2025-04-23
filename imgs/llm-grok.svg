@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 33.33276 32"
+   fill="none"
+   class="opacity-80 hover:opacity-100 fill-black dark:fill-white [&amp;&gt;path]:hidden sm:[&amp;&gt;path]:block [&amp;&gt;#mark]:block [&amp;&gt;#furigana]:opacity-60"
+   version="1.1"
+   id="svg463"
+   sodipodi:docname="llm-grok.svg"
+   width="33.33276"
+   height="32"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs467" />
+  <sodipodi:namedview
+     id="namedview465"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="14.795455"
+     inkscape:cx="40.688172"
+     inkscape:cy="16.018433"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg463" />
+  <path
+     d="m 12.87346,20.5407 11.0815,-8.1901 c 0.5433,-0.4015 1.3198,-0.2449 1.5787,0.3788 1.3624,3.2891 0.7537,7.2418 -1.957,9.9557 -2.7106,2.7138 -6.4822,3.309 -9.9295,1.9535 l -3.7659,1.7457 c 5.4014,3.6963 11.9604,2.7822 16.0591,-1.3242 3.2511,-3.255 4.258,-7.6918 3.3165,-11.6928 l 0.0085,0.0085 c -1.3653,-5.87771 0.3357,-8.22709 3.82,-13.031224 C 33.16776,0.230667 33.25026,0.116757 33.33276,0 l -4.5851,4.59055 V 4.57631 l -15.877,15.96729"
+     fill="currentColor"
+     id="mark" />
+  <path
+     d="m 10.58666,22.5313 c -3.87687,-3.7078 -3.20845,-9.446 0.0995,-12.755 2.4461,-2.44908 6.4538,-3.44863 9.9523,-1.9792 l 3.7574,-1.73712 C 23.71896,5.57017 22.85136,5.04334 21.85586,4.67313 17.35616,2.81926 11.96896,3.74192 8.31115,7.40126 4.79271,10.9239 3.68626,16.3403 5.58628,20.9622 7.0056,24.4165 4.67893,26.8598 2.3352,29.326 1.50465,30.2002 0.67126,31.0745 0,32 l 10.58376,-9.4659"
+     fill="currentColor"
+     id="path461" />
+</svg>
