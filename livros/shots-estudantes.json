@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "<h2>Exemplos: shots</h2><p>Uma técnica útil para comandos mais eficazes é fornecer exemplos, conhecidos como \"shots\". Eles mostram à IA o tipo de resposta desejada.</p><p>Existem diferentes formas:<ul><li><strong>Zero-shot:</strong> sem exemplo</li><li><strong>One-shot:</strong> com um exemplo</li><li><strong>Few-shot:</strong> com alguns exemplos</li><li><strong>Cadeia de pensamento (COT):</strong> conduz a IA a pensar passo a passo</li></ul>",
+
+    "<h2>Zero-Shot</h2><p>Sou estudante de Enfermagem e preciso revisar os principais protocolos de atendimento em situações de emergência. Gere um resumo com tópicos objetivos para revisar antes da prova.</p>",
+
+    "<h2>One-Shot</h2><p>Curso Arquitetura e estou desenvolvendo um projeto sobre espaços urbanos sustentáveis. Sugira ideias criativas para revitalização de praças públicas em centros urbanos.<br><br>Exemplo:<br>• Usar jardins de chuva para melhorar a drenagem natural e criar espaços verdes funcionais.</p>",
+
+    "<h2>Few-Shot</h2><p>Sou aluno de Engenharia Elétrica e estou elaborando um pôster para um congresso científico. Preciso de sugestões de títulos e resumos objetivos.<br><br>Exemplos:<br>* Título: Otimização do Consumo Energético em Ambientes Residenciais com IoT<br>Resumo: Este estudo apresenta um sistema inteligente baseado em sensores que ajusta automaticamente o uso de energia conforme a ocupação dos cômodos.<br><br>* Título: Fontes Renováveis em Pequenas Comunidades<br>Resumo: Análise da viabilidade técnica e econômica de sistemas híbridos solares e eólicos para comunidades rurais isoladas.</p>",
+
+    "<h2>COT</h2><p>Sou estudante de Direito e estou com dificuldades para organizar meu tempo entre estágio, aulas e TCC. Me ajude a montar um plano de organização semanal equilibrado. Considere tempo para estudos, descanso e prazos de entrega.<br><i>Este é um exemplo de COT porque o comando solicita que a IA organize o raciocínio por etapas para construir uma solução personalizada.</i></p>"
+  ]
+}

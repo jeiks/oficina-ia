@@ -9,6 +9,14 @@ body {
     color: white;
 }
 
+a {
+  color: #000077;
+  text-decoration: none;
+}
+a:hover {
+  color: #0022DD;
+}
+
 .hidden {
     display: none !important;
 }

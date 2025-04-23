@@ -1,0 +1,15 @@
+{
+    "pages": [
+        "<h2>5 elementos básicos da criação de comandos de IA</h2><p>Comandos mais eficientes para ferramentas de IA seguem 5 elementos essenciais.</p><p>Para lembrar de todos, pense em cada \"PARTE\" de um comando:<ul><li><b>P</b>erfil</li><li><b>A</b>lvo</li><li><b>R</b>ecebedores</li><li><b>T</b>ema</li><li><b>E</b>strutura</li></ul>",
+
+        "<h2>1. Perfil: diga quem você é e o que está fazendo na universidade.</h2>Isso ajuda a IA a adaptar a resposta para seu contexto.<br>Exemplos:<ul><li>Sou estudante de Engenharia Civil e estou fazendo um relatório de laboratório sobre resistência dos materiais.</li><li>Curso Administração e estou desenvolvendo um projeto de extensão sobre empreendedorismo social.</li><li>Sou aluno de Computação e estou aprendendo sobre redes neurais para um trabalho prático.</li></ul>",
+
+        "<h2>2. Alvo: defina o que você quer alcançar com o comando.</h2>Exemplos:<ul><li>Engenharia Civil: preciso de ajuda para montar uma introdução clara com objetivos do experimento.</li><li>Administração: quero gerar um modelo de canvas para um projeto de impacto local.</li><li>Computação: gostaria de um exemplo de código em PyTorch com rede convolucional simples.</li></ul>",
+
+        "<h2>3. Recebedores: especifique para quem é o conteúdo gerado.</h2>Exemplos:<ul><li>Professora da disciplina de Mecânica dos Materiais.</li><li>Equipe de mentores do programa de extensão.</li><li>Colegas de grupo que têm pouca experiência com redes neurais.</li></ul>",
+
+        "<h2>4. Tema: defina o estilo, tom e outros parâmetros que ajudam a IA a personalizar melhor a resposta.</h2>Exemplos:<ul><li>Use uma linguagem técnica, mas acessível a iniciantes.</li><li>Explique com base em analogias visuais e exemplos do cotidiano.</li><li>Seja breve, com até 300 palavras.</li></ul>",
+
+        "<h2>5. Estrutura: escolha o formato do resultado desejado.</h2>Exemplos:<ul><li>Crie uma tabela comparativa com os prós e contras de duas metodologias.</li><li>Forneça um roteiro de apresentação em tópicos.</li><li>Gere um resumo estruturado com título, introdução, desenvolvimento e conclusão.</li></ul>"
+    ]
+}
