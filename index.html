@@ -1,83 +1,240 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oficina IA - 2025</title>
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Estilo da página */
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #4a90e2, #50e3c2);
-            color: white;
-        }
-
-        /* Container central */
-        .container {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Título e subtítulo */
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        /* Estilo dos botões */
-        .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-            background-color: #0078D7;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background-color: #005A9E;
-            transform: scale(1.05);
-        }
-
-        .button:active {
-            transform: scale(1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina IA — Semana Pedagógica 2025/1</title>
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#5d687a;
+  --primary:#3157d5;
+  --primary-dark:#2444aa;
+  --soft:#eaf0ff;
+  --green:#16866f;
+  --green-soft:#eaf8f4;
+  --orange:#c66b19;
+  --orange-soft:#fff4e8;
+  --border:#dfe5ef;
+  --shadow:0 14px 40px rgba(31,48,80,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px 18px;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(49,87,213,.07), transparent 32%),
+    radial-gradient(circle at 90% 90%, rgba(22,134,111,.06), transparent 32%),
+    var(--bg);
+  color:var(--text);
+}
+.container{
+  width:min(1050px,100%);
+}
+.panel{
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--border);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.hero{
+  padding:46px 46px 40px;
+  background:linear-gradient(135deg,#ffffff 0%,#eef3ff 100%);
+  border-bottom:1px solid var(--border);
+}
+.badge{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--primary);
+  font-size:.75rem;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+h1{
+  margin:17px 0 8px;
+  font-size:clamp(2rem,5vw,3.15rem);
+  line-height:1.08;
+  letter-spacing:-.025em;
+}
+.subtitle{
+  margin:0;
+  color:var(--muted);
+  font-size:1.08rem;
+}
+.content{
+  padding:34px 42px 38px;
+}
+.section-title{
+  margin:0 0 17px;
+  font-size:1.3rem;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.card{
+  position:relative;
+  display:block;
+  min-height:150px;
+  padding:23px 58px 22px 23px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fbfcfe;
+  color:inherit;
+  text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#c4d0ee;
+  box-shadow:0 12px 28px rgba(31,48,80,.10);
+}
+.icon{
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:14px;
+  background:var(--soft);
+  color:var(--primary);
+  font-weight:900;
+  font-size:1.15rem;
+}
+.card.green .icon{background:var(--green-soft);color:var(--green)}
+.card.orange .icon{background:var(--orange-soft);color:var(--orange)}
+.card h3{
+  margin:0 0 6px;
+  font-size:1.12rem;
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.5;
+}
+.arrow{
+  position:absolute;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#a0aabc;
+  font-size:1.55rem;
+  transition:transform .18s ease,color .18s ease;
+}
+.card:hover .arrow{
+  transform:translate(3px,-50%);
+  color:var(--primary);
+}
+.nutrition{
+  margin-top:22px;
+  border:1px solid #ccebe3;
+  border-radius:20px;
+  padding:23px 25px;
+  background:linear-gradient(135deg,#f2fbf8,#ffffff);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.nutrition:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(22,134,111,.10);
+}
+.nutrition .icon{
+  flex:0 0 auto;
+  margin:0;
+  background:var(--green-soft);
+  color:var(--green);
+}
+.nutrition h3{margin:0 0 4px;font-size:1.2rem}
+.nutrition p{margin:0;color:var(--muted);font-size:.94rem}
+.nutrition .arrow{margin-left:auto;position:static;transform:none}
+.nutrition:hover .arrow{transform:translateX(3px);color:var(--green)}
+.footer{
+  padding:20px 10px 4px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.88rem;
+}
+@media(max-width:700px){
+  body{padding:14px 10px}
+  .hero{padding:30px 23px}
+  .content{padding:25px 20px 28px}
+  .grid{grid-template-columns:1fr}
+  .nutrition{align-items:flex-start}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Semana Pedagógica - 2025/1</h1>
-        <h2>Oficina - Uso Consciente de IA</h2>
-        <h2>Cartilhas</h2>
-        <a href="docentes" class="button">Docentes</a>
-        <a href="estudantes" class="button">Estudantes</a>
-        <a href="tecnicos" class="button">Técnicos</a>
-    </div>
+
+<main class="container">
+  <div class="panel">
+
+    <header class="hero">
+      <span class="badge">Oficina de Inteligência Artificial</span>
+      <h1>Oficina — Uso Consciente de IA</h1>
+      <p class="subtitle">Materiais e conteúdos para diferentes públicos e atividades da oficina.</p>
+    </header>
+
+    <section class="content">
+      <h2 class="section-title">Materiais</h2>
+
+      <div class="grid">
+        <a class="card" href="docentes">
+          <div class="icon">D</div>
+          <h3>Docentes</h3>
+          <p>Material da oficina destinado aos docentes.</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="card green" href="estudantes">
+          <div class="icon">E</div>
+          <h3>Estudantes</h3>
+          <p>Material da oficina destinado aos estudantes.</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="card orange" href="tecnicos">
+          <div class="icon">T</div>
+          <h3>Técnicos</h3>
+          <p>Material da oficina destinado aos técnicos.</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <a class="nutrition" href="nutricao/">
+        <div class="icon">N</div>
+        <div>
+          <h3>IA Generativa na Pesquisa Científica em Nutrição</h3>
+          <p>Materiais, ferramentas, prompts e atividades práticas para pesquisa científica.</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <div class="footer">
+        Oficina — Uso Consciente de IA
+      </div>
+    </section>
+
+  </div>
+</main>
+
 </body>
 </html>
