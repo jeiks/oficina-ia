@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOTS — Exemplos para orientar a IA na pesquisa científica</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#5d687a;--primary:#3157d5;--soft:#eaf0ff;--green:#16866f;--green-soft:#eaf8f4;--orange:#c66b19;--orange-soft:#fff4e8;--purple:#7651c9;--purple-soft:#f2edff;--border:#dfe5ef;--shadow:0 10px 30px rgba(31,48,80,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}.container{max-width:1120px;margin:auto;padding:28px 22px 60px}.hero{background:linear-gradient(135deg,#fff,#eef3ff);border:1px solid var(--border);border-radius:24px;padding:44px;box-shadow:var(--shadow);margin-bottom:24px}.badge{display:inline-block;background:var(--soft);color:var(--primary);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px}h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;margin:15px 0 10px}.hero p{font-size:1.15rem;color:var(--muted);max-width:880px;margin:0}nav{position:sticky;top:10px;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:16px;padding:10px;margin:0 0 24px;box-shadow:var(--shadow);display:flex;gap:7px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--muted);padding:7px 11px;border-radius:9px;font-size:.9rem;font-weight:700}nav a:hover{background:var(--soft);color:var(--primary)}.section{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;margin:22px 0;box-shadow:var(--shadow)}h2{font-size:1.7rem;line-height:1.2;margin:0 0 18px}h3{font-size:1.18rem;margin:20px 0 8px}p{margin:8px 0}.lead{font-size:1.08rem;color:#3d4759}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:15px}.card{border:1px solid var(--border);border-radius:16px;padding:20px;background:#fbfcfe}.card h3{margin:0 0 7px}.icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.05rem;background:var(--soft);color:var(--primary);margin-bottom:12px}.icon.green{background:var(--green-soft);color:var(--green)}.icon.orange{background:var(--orange-soft);color:var(--orange)}.icon.purple{background:var(--purple-soft);color:var(--purple)}.example{background:#f7f9fc;border-left:4px solid var(--green);padding:17px 19px;border-radius:0 12px 12px 0;margin:14px 0}.warning{background:var(--orange-soft);border:1px solid #f0d0ad;padding:18px 20px;border-radius:14px}.good{background:var(--green-soft);border:1px solid #ccebe3;padding:18px 20px;border-radius:14px}.info{background:var(--purple-soft);border:1px solid #ddd1fa;padding:18px 20px;border-radius:14px}.prompt{background:#111827;color:#eef2ff;border-radius:16px;padding:23px;font-family:"SFMono-Regular",Consolas,monospace;font-size:.92rem;line-height:1.7;white-space:pre-wrap;overflow:auto}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.94rem}th,td{border:1px solid var(--border);padding:13px;vertical-align:top;text-align:left}th{background:#f3f6fb}.step{display:grid;grid-template-columns:48px 1fr;gap:15px;align-items:start;margin:15px 0}.stepnum{width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.quote{font-size:1.3rem;font-weight:750;text-align:center;padding:25px;background:linear-gradient(135deg,#f0f4ff,#f8fbff);border-radius:16px;border:1px solid var(--border)}.check{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.check div{border:1px solid var(--border);padding:13px;border-radius:10px;background:#fbfcfe}footer{text-align:center;color:var(--muted);padding:25px 10px 0;font-size:.9rem}@media(max-width:650px){.hero,.section{padding:22px}.container{padding:15px 12px 40px}nav{position:static}}
+</style>
+</head>
+<body>
+<main class="container">
+<header class="hero"><span class="badge">IA generativa na pesquisa científica</span><h1>SHOTS</h1><p>Como exemplos podem orientar a IA na pesquisa científica — e como combinar exemplos, contexto e análise em etapas.</p></header>
+<nav>
+<a href="#ideia">A ideia</a><a href="#zero">Zero-Shot</a><a href="#one">One-Shot</a><a href="#few">Few-Shot</a><a href="#comparacao">Comparação</a><a href="#parteshots">P.A.R.T.E. + SHOTS</a><a href="#cot">CoT</a><a href="#combinacoes">Combinações</a><a href="#pratica">Na prática</a>
+</nav>
+
+<section class="section" id="ideia"><h2>Exemplos: SHOTS</h2><p class="lead">Uma forma de melhorar um comando para uma ferramenta de IA é <strong>mostrar exemplos do tipo de resultado que esperamos</strong>.</p><p>Esses exemplos são frequentemente chamados de <strong>shots</strong>.</p><div class="quote">Em vez de apenas dizer à IA o que fazer, podemos mostrar como esperamos que ela faça.</div>
+<div class="grid" style="margin-top:20px"><div class="card"><div class="icon">0</div><h3>Zero-Shot</h3><p>Nenhum exemplo é fornecido.</p></div><div class="card"><div class="icon green">1</div><h3>One-Shot</h3><p>Um exemplo é fornecido.</p></div><div class="card"><div class="icon orange">N</div><h3>Few-Shot</h3><p>Alguns exemplos são fornecidos.</p></div><div class="card"><div class="icon purple">CoT</div><h3>Chain-of-Thought</h3><p>Outra dimensão: solicitar uma resolução ou análise organizada em etapas.</p></div></div>
+<div class="info" style="margin-top:20px"><strong>Distinção importante:</strong> Zero-Shot, One-Shot e Few-Shot dizem respeito à <strong>quantidade de exemplos</strong>. Chain-of-Thought (CoT) é uma abordagem diferente, relacionada à solicitação de raciocínio ou resolução em etapas. Eles podem ser combinados.</div></section>
+
+<section class="section" id="zero"><h2>Zero-Shot</h2><p>No <strong>Zero-Shot</strong>, o pesquisador apresenta a tarefa <strong>sem fornecer exemplos de como a resposta deve ser produzida</strong>.</p><p>Isso não significa que o comando seja ruim. Significa apenas que a IA precisa inferir o padrão esperado a partir da própria instrução.</p>
+<div class="prompt">Sou nutricionista e estou planejando uma pesquisa sobre consumo de alimentos ultraprocessados entre estudantes universitários.
+
+Identifique cinco possíveis perguntas de pesquisa que poderiam ser investigadas em um estudo transversal.
+
+Para cada uma, indique a população, a exposição, o desfecho e possíveis fatores de confusão.</div>
+<h3>O que a IA precisa inferir?</h3><div class="check"><div>O que é uma boa pergunta de pesquisa</div><div>Como organizar as variáveis</div><div>Qual formato utilizar</div><div>Qual nível de detalhamento apresentar</div></div>
+<h3>Quando pode ser suficiente?</h3><ul><li>A tarefa é relativamente simples;</li><li>o formato esperado é convencional;</li><li>o pesquisador não precisa de um padrão muito específico;</li><li>a instrução já fornece contexto suficiente.</li></ul>
+<div class="warning"><strong>Risco:</strong> quando a tarefa é mais específica, duas respostas podem seguir corretamente o comando e ainda assim apresentar estruturas completamente diferentes.</div></section>
+
+<section class="section" id="one"><h2>One-Shot</h2><p>No <strong>One-Shot</strong>, fornecemos <strong>um exemplo</strong> para mostrar à IA o padrão esperado.</p><p>O exemplo não precisa ser exatamente o problema que estamos investigando. Ele pode demonstrar o <strong>formato, nível de detalhamento ou tipo de análise</strong> esperado.</p>
+<div class="prompt">Quero transformar temas amplos em perguntas de pesquisa específicas.
+
+Exemplo:
+
+Tema: consumo de bebidas açucaradas entre adolescentes.
+
+Pergunta de pesquisa: “Entre adolescentes de 12 a 17 anos, o consumo elevado de bebidas açucaradas está associado à maior prevalência de excesso de peso?”
+
+Agora faça o mesmo para o seguinte tema:
+
+Consumo de alimentos ultraprocessados entre estudantes universitários.</div>
+<h3>O que o exemplo ensinou?</h3><p>O pesquisador não precisou explicar longamente toda a estrutura desejada. O próprio exemplo comunica parte do padrão:</p><div class="example"><strong>Tema amplo → pergunta de pesquisa específica</strong></div></section>
+
+<section class="section" id="few"><h2>Few-Shot</h2><p>No <strong>Few-Shot</strong>, fornecemos <strong>vários exemplos</strong>. Isso é especialmente útil quando queremos que a IA reproduza um padrão mais específico.</p>
+<div class="prompt">Quero transformar temas de pesquisa em perguntas científicas específicas. Observe os exemplos:
+
+Exemplo 1
+
+Tema: consumo de bebidas açucaradas entre adolescentes.
+
+Pergunta: “Entre adolescentes de 12 a 17 anos, o consumo elevado de bebidas açucaradas está associado à maior prevalência de excesso de peso?”
+
+Exemplo 2
+
+Tema: atividade física entre estudantes universitários.
+
+Pergunta: “Entre estudantes universitários, níveis insuficientes de atividade física estão associados à maior prevalência de sintomas de ansiedade?”
+
+Exemplo 3
+
+Tema: qualidade do sono em adultos.
+
+Pergunta: “Entre adultos jovens, a duração insuficiente do sono está associada à maior prevalência de consumo excessivo de alimentos ultraprocessados?”
+
+Agora produza cinco perguntas seguindo o mesmo padrão para:
+
+Consumo de alimentos ultraprocessados entre estudantes universitários.</div>
+<h3>O que os exemplos estão ensinando?</h3><p>Neste caso, os exemplos indicam um padrão recorrente:</p><div class="quote">População + exposição + associação + desfecho</div><p>E não simplesmente: <em>“Crie perguntas interessantes sobre o tema.”</em></p></section>
+
+<section class="section" id="comparacao"><h2>Zero-Shot × One-Shot × Few-Shot</h2><table><thead><tr><th>Estratégia</th><th>Exemplos fornecidos</th><th>O que a IA precisa inferir?</th></tr></thead><tbody><tr><td><strong>Zero-Shot</strong></td><td>Nenhum</td><td>O padrão a partir da instrução.</td></tr><tr><td><strong>One-Shot</strong></td><td>1</td><td>O padrão a partir de um exemplo.</td></tr><tr><td><strong>Few-Shot</strong></td><td>Alguns</td><td>O padrão a partir de vários exemplos.</td></tr></tbody></table>
+<div class="good"><strong>Uma forma simples de explicar:</strong><br><strong>Zero-Shot:</strong> “Faça isso.”<br><strong>One-Shot:</strong> “Faça isso. Veja um exemplo.”<br><strong>Few-Shot:</strong> “Faça isso. Veja alguns exemplos.”</div><p>Quanto mais específico for o padrão desejado, <strong>mais úteis podem ser os exemplos</strong>.</p></section>
+
+<section class="section"><h2>Os exemplos não precisam ensinar a resposta final</h2><p>Essa é uma distinção importante para a pesquisa científica.</p><p>Um exemplo pode ensinar:</p><div class="check"><div>Formato</div><div>Nível de profundidade</div><div>Organização</div><div>Classificação</div><div>Critérios</div><div>Estilo de análise</div><div>Relação entre pergunta e hipótese</div><div>Estrutura da resposta</div></div>
+<div class="prompt" style="margin-top:18px">Exemplo 1:
+“Uma intervenção com dieta mediterrânea reduz o colesterol LDL?”
+Classificação: Pergunta de intervenção
+
+Exemplo 2:
+“O consumo elevado de ultraprocessados está associado ao excesso de peso?”
+Classificação: Pergunta observacional
+
+Agora classifique:
+“O consumo de bebidas açucaradas está associado à obesidade em adolescentes?”</div>
+<div class="example"><strong>O exemplo ensinou à IA como classificar, e não simplesmente qual resposta dar.</strong></div></section>
+
+<section class="section" id="parteshots"><h2>SHOTS + P.A.R.T.E.</h2><p>O <strong>P.A.R.T.E.</strong> fornece contexto. Os <strong>SHOTS</strong> fornecem exemplos.</p><div class="grid"><div class="card"><div class="icon">P</div><h3>P.A.R.T.E.</h3><p>Quem sou? O que quero? Para quem? Sobre o quê? Como quero receber?</p></div><div class="card"><div class="icon green">+</div><h3>SHOTS</h3><p>“Veja como quero que isso seja feito.”</p></div></div>
+<h3>Exemplo combinado</h3><div class="prompt">Perfil:
+Sou nutricionista e estou planejando uma pesquisa em Epidemiologia Nutricional.
+
+Alvo:
+Quero transformar temas amplos em perguntas de pesquisa observacionais.
+
+Recebedores:
+As perguntas serão discutidas com meu orientador de mestrado.
+
+Tema:
+Meu interesse é investigar relações entre alimentação e excesso de peso em estudantes universitários.
+
+Exemplo 1:
+Tema: consumo de bebidas açucaradas.
+Pergunta: “Entre adolescentes, o consumo elevado de bebidas açucaradas está associado à maior prevalência de excesso de peso?”
+
+Exemplo 2:
+Tema: atividade física.
+Pergunta: “Entre estudantes universitários, níveis insuficientes de atividade física estão associados à maior prevalência de excesso de peso?”
+
+Estrutura:
+Com base nesses exemplos, crie cinco perguntas sobre o consumo de alimentos ultraprocessados. Apresente população, exposição, desfecho e possíveis confundidores.</div>
+<div class="quote" style="margin-top:20px">P.A.R.T.E. → contexto<br>SHOTS → padrão</div></section>
+
+<section class="section" id="cot"><h2>Chain-of-Thought (CoT)</h2><p>O <strong>Chain-of-Thought (CoT)</strong> é diferente de Zero-Shot, One-Shot e Few-Shot.</p><p>Ele está relacionado à solicitação de uma resolução <strong>em etapas</strong>.</p>
+<div class="prompt">Sou pesquisador na área de Nutrição.
+
+Tenho a seguinte pergunta:
+
+“Entre estudantes universitários, o consumo elevado de alimentos ultraprocessados está associado à maior prevalência de excesso de peso?”
+
+Analise o problema em etapas:
+
+1. identifique a população;
+2. identifique a exposição;
+3. identifique o desfecho;
+4. indique se a pergunta é de associação ou intervenção;
+5. sugira desenhos de estudo compatíveis;
+6. apresente os principais fatores de confusão que deveriam ser considerados;
+7. indique quais decisões metodológicas ainda precisam ser tomadas pelo pesquisador.</div>
+<p>O objetivo é <strong>estruturar o processo de resolução</strong>.</p><h3>Uma observação importante</h3><div class="warning">Para uma oficina atual de IA, é melhor ensinar os alunos a solicitar <strong>análise em etapas</strong>, critérios e resultados intermediários, em vez de simplesmente pedir que a ferramenta revele todo o seu “raciocínio interno”.</div>
+<div class="good" style="margin-top:15px"><strong>Boas formulações:</strong><br>“Analise em etapas.”<br>“Apresente os critérios utilizados para chegar à conclusão.”<br>“Divida a tarefa em etapas e mostre o resultado de cada etapa.”</div></section>
+
+<section class="section" id="combinacoes"><h2>As estratégias podem ser combinadas</h2><h3>Zero-Shot + análise em etapas</h3><div class="prompt">Tenho uma pergunta de pesquisa sobre consumo de ultraprocessados e excesso de peso em estudantes universitários.
+
+Analise em etapas quais variáveis deveriam ser consideradas, quais fatores de confusão são plausíveis e quais desenhos de estudo poderiam responder à pergunta.</div><p>Não fornecemos exemplos. Portanto, é <strong>Zero-Shot</strong>. Ao mesmo tempo, solicitamos uma análise organizada em etapas.</p>
+<h3>Few-Shot + análise em etapas</h3><div class="prompt">Observe os exemplos abaixo de perguntas de pesquisa e suas classificações.
+
+[Exemplo 1]
+
+[Exemplo 2]
+
+[Exemplo 3]
+
+Agora classifique a nova pergunta.
+
+Analise em etapas:
+
+1. identifique população;
+2. identifique exposição;
+3. identifique desfecho;
+4. determine o tipo de pergunta;
+5. justifique a classificação.</div><p>Aqui temos <strong>Few-Shot + análise em etapas</strong>.</p></section>
+
+<section class="section"><h2>O que realmente importa?</h2><p>Não é simplesmente usar Zero-Shot, One-Shot, Few-Shot ou CoT.</p><div class="quote">Qual estratégia ajuda a IA a produzir uma resposta mais útil para a tarefa científica que estou realizando?</div>
+<div class="grid" style="margin-top:20px"><div class="card"><div class="icon">0</div><h3>Use Zero-Shot quando</h3><ul><li>a tarefa é simples;</li><li>o formato é convencional;</li><li>a instrução já é clara.</li></ul></div><div class="card"><div class="icon green">1</div><h3>Use One-Shot quando</h3><ul><li>existe um padrão específico;</li><li>um exemplo é suficiente;</li><li>você quer mostrar o formato esperado.</li></ul></div><div class="card"><div class="icon orange">N</div><h3>Use Few-Shot quando</h3><ul><li>o padrão é mais complexo;</li><li>uma demonstração pode ser ambígua;</li><li>há vários critérios a serem demonstrados.</li></ul></div><div class="card"><div class="icon purple">CoT</div><h3>Use análise em etapas quando</h3><ul><li>o problema envolve várias decisões;</li><li>você quer organizar a resolução;</li><li>precisa verificar critérios intermediários.</li></ul></div></div></section>
+
+<section class="section" id="pratica"><h2>Uma ideia importante para a pesquisa científica</h2><p>Os exemplos não precisam ensinar à IA <strong>qual conclusão científica tomar</strong>.</p><p>Eles podem ensinar <strong>como organizar o problema</strong>.</p><div class="check"><div>Estruturar perguntas</div><div>Classificar problemas</div><div>Organizar variáveis</div><div>Comparar metodologias</div><div>Identificar informações ausentes</div><div>Revisar argumentos</div><div>Organizar resultados</div></div>
+<div class="warning" style="margin-top:20px"><strong>Atenção:</strong> um exemplo fornecido pelo pesquisador também pode carregar pressupostos, vieses ou erros. Portanto, exemplos ajudam a orientar o modelo, mas <strong>não transformam o exemplo em evidência científica</strong>.</div></section>
+
+<section class="section"><h2>P.A.R.T.E. + SHOTS + análise em etapas</h2>
+<div class="step"><div class="stepnum">1</div><div><strong>P.A.R.T.E.</strong><p>Fornece o contexto da tarefa: perfil, objetivo, público, tema e formato.</p></div></div>
+<div class="step"><div class="stepnum">2</div><div><strong>SHOTS</strong><p>Mostram exemplos do padrão que se deseja obter.</p></div></div>
+<div class="step"><div class="stepnum">3</div><div><strong>Análise em etapas</strong><p>Organiza tarefas complexas em etapas verificáveis.</p></div></div>
+<div class="quote" style="margin-top:22px">Contexto orienta a IA.<br>Exemplos mostram o padrão.<br>Etapas organizam o problema.<br><br><strong>Mas a decisão científica continua sendo do pesquisador.</strong></div></section>
+
+<footer>Material para a oficina “IA Generativa na Pesquisa Científica em Nutrição”.<br>Use a IA para pensar melhor — e não para pensar no seu lugar.</footer>
+</main>
+</body>
+</html>

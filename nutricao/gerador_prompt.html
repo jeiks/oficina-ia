@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerador de Prompt — Pesquisa em Nutrição</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#64748b;--blue:#2563eb;--border:#dbe4f0}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:32px 18px;display:flex;justify-content:center;align-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,#dce9ff,transparent 30%),radial-gradient(circle at 90% 90%,#eee4ff,transparent 30%),var(--bg)}
+.container{width:min(900px,100%)}header{text-align:center;margin-bottom:24px}.badge{display:inline-block;padding:7px 13px;border-radius:999px;background:#e8f0ff;color:#1d4ed8;font-size:.82rem;font-weight:750;margin-bottom:12px}h1{margin:0;font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.03em}.subtitle{max-width:700px;margin:10px auto 0;color:var(--muted);line-height:1.55}
+.card{background:#ffffffee;border:1px solid var(--border);border-radius:22px;padding:28px;box-shadow:0 18px 55px #0f172a1a}label{display:block;font-weight:750;margin-bottom:8px}.hint{color:var(--muted);font-size:.88rem;margin:0 0 12px}.input-row{display:flex;gap:10px}input{flex:1;min-width:0;border:2px solid var(--border);border-radius:13px;padding:14px 15px;font:inherit;outline:0}input:focus{border-color:#7aa2f7;box-shadow:0 0 0 4px #2563eb1a}button{border:0;border-radius:13px;padding:0 20px;min-height:50px;background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;font:inherit;font-weight:750;cursor:pointer;box-shadow:0 8px 18px #2563eb3b}button:hover{transform:translateY(-1px)}.error{height:24px;padding-top:8px;color:#dc2626;font-size:.86rem}
+.result{display:none;margin-top:24px;border:1px solid #cfe0ff;border-radius:17px;background:#eff6ff;overflow:hidden}.result.show{display:block}.result-head{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-bottom:1px solid #d7e5ff}.copy{min-height:auto;padding:8px 12px;background:#fff;color:#1d4ed8;border:1px solid #c7d8f8;box-shadow:none;font-size:.85rem}.title{font-weight:800}pre{margin:0;padding:20px;white-space:pre-wrap;line-height:1.72;font:1rem/1.72 inherit;color:#1e293b}.footer{text-align:center;margin-top:15px;color:#94a3b8;font-size:1rem}
+@media(max-width:650px){.card{padding:20px}.input-row{flex-direction:column}button{width:100%;padding:13px 18px}}
+</style>
+</head>
+<body>
+<main class="container">
+<header><div class="badge">🔬 Oficina de IA na Pesquisa Científica</div>
+<h1>Explore seu tema de pesquisa</h1>
+<p class="subtitle">Digite um tema em Nutrição e gere um prompt de exemplo para explorá-lo.</p></header>
+<section class="card">
+<label for="tema">Qual é o tema da sua pesquisa?</label>
+<p class="hint">Ex.: consumo de ultraprocessados entre universitários</p>
+<div class="input-row"><input id="tema" placeholder="Digite o tema aqui..." autocomplete="off"><button id="gerar">Gerar prompt ✨</button></div>
+<div id="erro" class="error"></div>
+<div id="resultado" class="result">
+<div class="result-head"><span class="title">Seu prompt está pronto</span><button id="copiar" class="copy">Copiar</button></div>
+<pre id="prompt"></pre></div>
+</section>
+<div class="footer">
+  <strong>Lembre-se: use a IA para pensar melhor, e não para pensar no seu lugar.</strong>
+</div>
+</main>
+<script>
+const tema=document.querySelector("#tema"),gerar=document.querySelector("#gerar"),erro=document.querySelector("#erro"),resultado=document.querySelector("#resultado"),promptEl=document.querySelector("#prompt"),copiar=document.querySelector("#copiar");
+function gerarPrompt(){const v=tema.value.trim();erro.textContent="";if(!v){resultado.classList.remove("show");erro.textContent="Digite um tema antes de gerar o prompt.";tema.focus();return}
+promptEl.textContent=`Estou planejando uma pesquisa na área de Nutrição sobre ${v}.
+Não quero que você escreva o projeto.
+Quero que me ajude a identificar:
+1. possíveis problemas de pesquisa;
+2. variáveis que poderiam ser investigadas;
+3. populações relevantes;
+4. possíveis desfechos;
+5. fatores de confusão;
+6. possíveis hipóteses.
+Para cada sugestão, explique quais decisões ainda precisam ser tomadas pelo(a) pesquisador(a).`;
+resultado.classList.add("show");resultado.scrollIntoView({behavior:"smooth",block:"nearest"})}
+gerar.onclick=gerarPrompt;tema.onkeydown=e=>{if(e.key==="Enter")gerarPrompt()};
+copiar.onclick=async()=>{try{await navigator.clipboard.writeText(promptEl.textContent)}catch{const t=document.createElement("textarea");t.value=promptEl.textContent;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}const old=copiar.textContent;copiar.textContent="✓ Copiado!";setTimeout(()=>copiar.textContent=old,1600)};
+</script>
+</body></html>

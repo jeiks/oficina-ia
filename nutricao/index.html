@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina — IA Generativa na Pesquisa Científica</title>
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#fff;
+  --text:#172033;
+  --muted:#5d687a;
+  --primary:#3157d5;
+  --primary-dark:#2444aa;
+  --soft:#eaf0ff;
+  --border:#dfe5ef;
+  --green:#16866f;
+  --green-soft:#eaf8f4;
+  --orange:#c66b19;
+  --orange-soft:#fff4e8;
+  --shadow:0 10px 30px rgba(31,48,80,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.container{
+  width:min(1100px,calc(100% - 32px));
+  margin:auto;
+  padding:42px 0 55px;
+}
+.hero{
+  background:linear-gradient(135deg,#fff 0%,#eef3ff 100%);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:42px;
+  box-shadow:var(--shadow);
+  margin-bottom:25px;
+}
+.badge{
+  display:inline-block;
+  padding:6px 11px;
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--primary);
+  font-size:.76rem;
+  font-weight:850;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+h1{
+  margin:15px 0 9px;
+  font-size:clamp(2rem,5vw,3.2rem);
+  line-height:1.08;
+}
+.hero p{
+  margin:0;
+  max-width:800px;
+  color:var(--muted);
+  font-size:1.08rem;
+}
+.section-title{
+  margin:0 0 15px 3px;
+  font-size:1.35rem;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+.card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:19px;
+  padding:23px;
+  box-shadow:var(--shadow);
+  transition:.18s ease;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#c4d0ee;
+  box-shadow:0 14px 35px rgba(31,48,80,.12);
+}
+.icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  background:var(--soft);
+  color:var(--primary);
+  font-size:1.2rem;
+  font-weight:900;
+  margin-bottom:15px;
+}
+.card.green .icon{background:var(--green-soft);color:var(--green)}
+.card.orange .icon{background:var(--orange-soft);color:var(--orange)}
+.card h3{
+  margin:0 0 6px;
+  font-size:1.13rem;
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.94rem;
+}
+.file{
+  margin-top:13px;
+  color:var(--primary);
+  font-family:Consolas,"Liberation Mono",monospace;
+  font-size:.84rem;
+  font-weight:700;
+}
+.arrow{
+  position:absolute;
+  right:20px;
+  bottom:19px;
+  color:#9aa5b8;
+  font-size:1.2rem;
+}
+.download{
+  background:#f9fbfd;
+}
+.notice{
+  margin-top:25px;
+  padding:18px 20px;
+  background:var(--green-soft);
+  border:1px solid #ccebe3;
+  border-radius:15px;
+  color:#315c53;
+}
+footer{
+  text-align:center;
+  color:var(--muted);
+  margin-top:30px;
+  font-size:.9rem;
+}
+@media(max-width:600px){
+  .container{width:calc(100% - 20px);padding:20px 0 35px}
+  .hero{padding:25px 21px}
+}
+</style>
+</head>
+<body>
+
+<main class="container">
+
+<header class="hero">
+  <span class="badge">Oficina de IA</span>
+  <h1>IA Generativa na Pesquisa Científica</h1>
+  <p>
+    Materiais, ferramentas e atividades para explorar o uso responsável da
+    Inteligência Artificial ao longo do processo de pesquisa científica.
+  </p>
+</header>
+
+<h2 class="section-title">Materiais da oficina</h2>
+
+<section class="grid">
+
+  <a class="card" href="llms.html">
+    <div class="icon">AI</div>
+    <h3>LLMs</h3>
+    <p>Conheça os principais Large Language Models (LLMs) utilizados atualmente.</p>
+    <div class="file">llms.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card green" href="ferramentas-pesquisa.html">
+    <div class="icon">🔎</div>
+    <h3>Ferramentas para pesquisa</h3>
+    <p>Ferramentas com IA e recursos para encontrar, mapear, comparar e localizar evidências científicas.</p>
+    <div class="file">ferramentas-pesquisa.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card orange" href="gerador_prompt.html">
+    <div class="icon">✦</div>
+    <h3>Gerador de Prompt</h3>
+    <p>Gere um comando de IA a partir de um tema de pesquisa em Nutrição.</p>
+    <div class="file">gerador_prompt.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card" href="parte.html">
+    <div class="icon">P</div>
+    <h3>P.A.R.T.E.</h3>
+    <p>Aprenda a construir comandos com Perfil, Alvo, Recebedores, Tema e Estrutura.</p>
+    <div class="file">parte.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card green" href="shots.html">
+    <div class="icon">N</div>
+    <h3>SHOTS</h3>
+    <p>Use exemplos para orientar a IA: Zero-Shot, One-Shot, Few-Shot e análise em etapas.</p>
+    <div class="file">shots.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card download" href="dados_sinteticos.csv" download>
+    <div class="icon">CSV</div>
+    <h3>Dados sintéticos</h3>
+    <p>Banco de dados para as atividades práticas de análise de dados da oficina.</p>
+    <div class="file">dados_sinteticos.csv</div>
+    <span class="arrow">↓</span>
+  </a>
+
+  <a class="card orange" href="gerador_prompt_escrita.html">
+    <div class="icon">✎</div>
+    <h3>Gerador de Prompt — Escrita</h3>
+    <p>Construa prompts para apoiar a escrita e a estruturação de textos científicos.</p>
+    <div class="file">gerador_prompt_escrita.html</div>
+    <span class="arrow">→</span>
+  </a>
+
+</section>
+
+<div class="notice">
+  <strong>Importante:</strong> os materiais foram desenvolvidos para apoiar o pesquisador.
+  A IA pode ajudar a pensar, estruturar, analisar e revisar, mas a responsabilidade
+  pelas decisões científicas permanece com o pesquisador.
+</div>
+
+<footer>
+  Oficina — IA Generativa na Pesquisa Científica em Nutrição
+</footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferramentas de IA para Uso Acadêmico</title>
+<style>
+:root{
+  --bg:#f6f8fc;--card:#fff;--line:#d9e1ec;--text:#172033;--muted:#59687b;
+  --blue:#2563eb;--violet:#6d4aff;--green:#15803d;--orange:#c26a00;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+ background:radial-gradient(circle at 8% 4%,rgba(37,99,235,.07),transparent 25%),
+ radial-gradient(circle at 92% 12%,rgba(109,74,255,.055),transparent 25%),var(--bg);
+}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+header{text-align:center;padding:58px 0 34px}
+.eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:#eaf2ff;color:#1d4ed8;font-size:.8rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.05em;margin:18px 0 12px}
+.subtitle{max-width:800px;margin:auto;color:var(--muted);font-size:1.04rem;line-height:1.65}
+.notice{margin:24px auto 0;max-width:900px;padding:14px 18px;background:#fff;border:1px solid #cfe0ff;border-radius:14px;color:#475569;font-size:.88rem;line-height:1.55}
+.notice strong{color:#1e40af}
+.toolbar{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:8px 0 28px}
+.filter{border:1px solid var(--line);background:#fff;color:#475569;border-radius:999px;padding:9px 14px;font:inherit;font-weight:750;cursor:pointer}
+.filter:hover,.filter.active{background:#eaf2ff;border-color:#93b4f5;color:#1d4ed8}
+.group{margin:0 0 34px}
+.group-title{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:1.28rem}
+.group-title .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{
+ background:var(--card);border:1px solid var(--line);border-radius:18px;padding:19px;
+ box-shadow:0 9px 28px rgba(15,23,42,.055);transition:.18s;position:relative;overflow:hidden
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.09);border-color:#b9c8dc}
+.card:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--accent)}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.logo{width:46px;height:46px;border-radius:13px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:900;font-size:1rem;box-shadow:0 6px 14px rgba(15,23,42,.12)}
+.name{font-weight:850;font-size:1.05rem}.type{font-size:.78rem;color:#718096;margin-top:2px}
+.desc{color:#475569;line-height:1.55;font-size:.9rem;min-height:67px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:13px 0}
+.tag{font-size:.7rem;padding:5px 8px;border-radius:7px;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569}
+.link{display:inline-block;color:#2563eb;text-decoration:none;font-size:.82rem;font-weight:800;margin-top:3px}
+.link:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);margin-top:20px;padding:28px 0 42px;text-align:center;color:#64748b;font-size:.82rem;line-height:1.6}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.container{width:min(100% - 22px,1180px)}header{padding-top:42px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+ <div class="eyebrow">Oficina de IA • Uso acadêmico</div>
+ <h1>Ferramentas de IA para Pesquisa</h1>
+ <p class="subtitle">Uma seleção de ferramentas que podem apoiar diferentes etapas do trabalho acadêmico — da formulação da pergunta à literatura, análise, escrita, apresentação e ensino.</p>
+</header>
+
+<div class="toolbar">
+ <button class="filter active" data-filter="all">Todas</button>
+ <button class="filter" data-filter="research">Pesquisa</button>
+ <button class="filter" data-filter="literature">Literatura</button>
+ <button class="filter" data-filter="pdf">PDF / documentos</button>
+ <button class="filter" data-filter="writing">Escrita</button>
+ <button class="filter" data-filter="presentation">Apresentações</button>
+ <button class="filter" data-filter="teaching">Ensino</button>
+</div>
+
+<section class="group" style="--accent:#2563eb">
+<h2 class="group-title"><span class="dot"></span> Assistentes gerais de IA</h2>
+<div class="grid">
+
+<article class="card" data-cat="research writing teaching" style="--accent:#10a37f">
+<div class="top"><div class="logo">GPT</div><div><div class="name">ChatGPT</div><div class="type">OpenAI</div></div></div>
+<div class="desc">Assistente geral para explorar ideias, formular perguntas, analisar textos, programar, revisar argumentos e apoiar diferentes etapas da pesquisa.</div>
+<div class="tags"><span class="tag">Pesquisa</span><span class="tag">Escrita</span><span class="tag">Análise</span></div>
+<a class="link" href="https://chatgpt.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research writing" style="--accent:#d97757">
+<div class="top"><div class="logo">C</div><div><div class="name">Claude</div><div class="type">Anthropic</div></div></div>
+<div class="desc">Assistente de linguagem útil para leitura, análise, escrita, síntese e trabalho com documentos e textos extensos.</div>
+<div class="tags"><span class="tag">Texto</span><span class="tag">Documentos</span><span class="tag">Análise</span></div>
+<a class="link" href="https://claude.ai/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research writing teaching" style="--accent:#4285f4">
+<div class="top"><div class="logo">✦</div><div><div class="name">Gemini</div><div class="type">Google</div></div></div>
+<div class="desc">Assistente multimodal para pesquisa, escrita, análise de arquivos, síntese e exploração de informações.</div>
+<div class="tags"><span class="tag">Multimodal</span><span class="tag">Arquivos</span><span class="tag">Pesquisa</span></div>
+<a class="link" href="https://gemini.google.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research writing" style="--accent:#7c3aed">
+<div class="top"><div class="logo">P</div><div><div class="name">Perplexity</div><div class="type">Perplexity AI</div></div></div>
+<div class="desc">Mecanismo de pesquisa com IA que combina respostas sintetizadas com referências e fontes consultadas.</div>
+<div class="tags"><span class="tag">Web</span><span class="tag">Pesquisa</span><span class="tag">Fontes</span></div>
+<a class="link" href="https://www.perplexity.ai/" target="_blank">Abrir ↗</a>
+</article>
+
+</div></section>
+
+<section class="group" style="--accent:#15803d">
+<h2 class="group-title"><span class="dot"></span> Literatura científica e descoberta</h2>
+<div class="grid">
+
+<article class="card" data-cat="research literature" style="--accent:#0f766e">
+<div class="top"><div class="logo">Co</div><div><div class="name">Consensus</div><div class="type">Pesquisa científica</div></div></div>
+<div class="desc">Ferramenta de busca científica que usa IA para encontrar e sintetizar evidências presentes na literatura acadêmica.</div>
+<div class="tags"><span class="tag">Artigos</span><span class="tag">Evidência</span><span class="tag">Síntese</span></div>
+<a class="link" href="https://consensus.app/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research literature writing" style="--accent:#2563eb">
+<div class="top"><div class="logo">E</div><div><div class="name">Elicit</div><div class="type">Pesquisa científica</div></div></div>
+<div class="desc">Assistente para descoberta de artigos, triagem, extração de informações e organização de evidências.</div>
+<div class="tags"><span class="tag">Literatura</span><span class="tag">Triagem</span><span class="tag">Síntese</span></div>
+<a class="link" href="https://elicit.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research literature writing pdf" style="--accent:#f97316">
+<div class="top"><div class="logo">S</div><div><div class="name">SciSpace</div><div class="type">AI for Research</div></div></div>
+<div class="desc">Plataforma para busca e revisão da literatura, conversa com PDFs, extração de dados, escrita e síntese.</div>
+<div class="tags"><span class="tag">Literatura</span><span class="tag">PDF</span><span class="tag">Revisão</span></div>
+<a class="link" href="https://scispace.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="research literature" style="--accent:#475569">
+<div class="top"><div class="logo">SS</div><div><div class="name">Semantic Scholar</div><div class="type">Allen Institute for AI</div></div></div>
+<div class="desc">Ferramenta acadêmica para descobrir artigos, autores, citações e conexões entre trabalhos científicos.</div>
+<div class="tags"><span class="tag">Busca</span><span class="tag">Citações</span><span class="tag">Artigos</span></div>
+<a class="link" href="https://www.semanticscholar.org/" target="_blank">Abrir ↗</a>
+</article>
+
+</div></section>
+
+<section class="group" style="--accent:#0891b2">
+<h2 class="group-title"><span class="dot"></span> PDFs, documentos e fontes</h2>
+<div class="grid">
+
+<article class="card" data-cat="pdf research" style="--accent:#ef4444">
+<div class="top"><div class="logo">N</div><div><div class="name">NotebookLM</div><div class="type">Google</div></div></div>
+<div class="desc">Permite trabalhar sobre um conjunto de fontes fornecidas pelo pesquisador, fazendo perguntas, sínteses e conexões com base nesses materiais.</div>
+<div class="tags"><span class="tag">Fontes próprias</span><span class="tag">PDF</span><span class="tag">Síntese</span></div>
+<a class="link" href="https://notebooklm.google.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="pdf research writing" style="--accent:#0ea5e9">
+<div class="top"><div class="logo">CP</div><div><div class="name">ChatPDF</div><div class="type">Documentos</div></div></div>
+<div class="desc">Interface de conversa com documentos PDF para localizar informações, resumir conteúdo e explorar um artigo.</div>
+<div class="tags"><span class="tag">PDF</span><span class="tag">Resumo</span><span class="tag">Perguntas</span></div>
+<a class="link" href="https://www.chatpdf.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="pdf research writing" style="--accent:#6366f1">
+<div class="top"><div class="logo">D</div><div><div class="name">DeepL</div><div class="type">Tradução e escrita</div></div></div>
+<div class="desc">Tradução e assistência linguística úteis para leitura de literatura internacional e revisão de textos acadêmicos.</div>
+<div class="tags"><span class="tag">Tradução</span><span class="tag">Idiomas</span><span class="tag">Escrita</span></div>
+<a class="link" href="https://www.deepl.com/" target="_blank">Abrir ↗</a>
+</article>
+
+</div></section>
+
+<section class="group" style="--accent:#c26a00">
+<h2 class="group-title"><span class="dot"></span> Escrita, diagramas e apresentações</h2>
+<div class="grid">
+
+<article class="card" data-cat="presentation teaching writing" style="--accent:#7c3aed">
+<div class="top"><div class="logo">G</div><div><div class="name">Gamma</div><div class="type">Apresentações</div></div></div>
+<div class="desc">Criação e edição de apresentações, documentos e páginas a partir de prompts, textos ou arquivos.</div>
+<div class="tags"><span class="tag">Slides</span><span class="tag">Design</span><span class="tag">IA</span></div>
+<a class="link" href="https://gamma.app/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="presentation teaching" style="--accent:#06b6d4">
+<div class="top"><div class="logo">Ca</div><div><div class="name">Canva</div><div class="type">Design e conteúdo</div></div></div>
+<div class="desc">Criação de apresentações, materiais didáticos, infográficos e elementos visuais com recursos de IA.</div>
+<div class="tags"><span class="tag">Slides</span><span class="tag">Visual</span><span class="tag">Ensino</span></div>
+<a class="link" href="https://www.canva.com/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="presentation teaching" style="--accent:#f59e0b">
+<div class="top"><div class="logo">Na</div><div><div class="name">Napkin</div><div class="type">Diagramas</div></div></div>
+<div class="desc">Transforma ideias e textos em diagramas, esquemas e representações visuais úteis para aulas e apresentações.</div>
+<div class="tags"><span class="tag">Diagramas</span><span class="tag">Visualização</span><span class="tag">Aulas</span></div>
+<a class="link" href="https://www.napkin.ai/" target="_blank">Abrir ↗</a>
+</article>
+
+<article class="card" data-cat="presentation teaching" style="--accent:#111827">
+<div class="top"><div class="logo">Ex</div><div><div class="name">Excalidraw</div><div class="type">Quadro e diagramas</div></div></div>
+<div class="desc">Ferramenta de desenho e diagramas com aparência de quadro branco, útil para explicar conceitos visualmente.</div>
+<div class="tags"><span class="tag">Diagramas</span><span class="tag">Aula</span><span class="tag">Colaboração</span></div>
+<a class="link" href="https://excalidraw.com/" target="_blank">Abrir ↗</a>
+</article>
+
+</div></section>
+
+<footer>
+<strong>Use ferramentas de IA para ampliar sua capacidade de pesquisa — não para substituir seu julgamento científico.</strong><br>
+Ferramentas, recursos e políticas mudam rapidamente. Verifique sempre as condições atuais de cada serviço.
+</footer>
+</div>
+
+<script>
+const buttons=document.querySelectorAll(".filter");
+const cards=document.querySelectorAll(".card");
+buttons.forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  buttons.forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+  const f=btn.dataset.filter;
+  cards.forEach(card=>card.style.display=(f==="all"||card.dataset.cat.split(" ").includes(f))?"":"none");
+ });
+});
+</script>
+</body>
+</html>

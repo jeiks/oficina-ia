@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLMs — Oficina de IA</title>
+<style>
+:root{
+  --bg:#f6f8fc;
+  --bg2:#ffffff;
+  --card:#ffffff;
+  --line:#d8e0ea;
+  --text:#172033;
+  --muted:#5b687a;
+  --blue:#2563eb;
+  --violet:#6d4aff;
+  --cyan:#0891b2;
+  --green:#15803d;
+  --orange:#c26a00;
+  --pink:#c0266d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 8% 4%,rgba(37,99,235,.07),transparent 25%),
+    radial-gradient(circle at 92% 12%,rgba(109,74,255,.055),transparent 25%),
+    linear-gradient(145deg,var(--bg),var(--bg2));
+  min-height:100vh;
+}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+header{padding:72px 0 42px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;
+  border:1px solid rgba(56,189,248,.28);border-radius:999px;
+  background:rgba(56,189,248,.08);color:#2563eb;font-size:.82rem;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase
+}
+h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.95;margin:20px 0 18px;letter-spacing:-.055em}
+h1 span{
+  background:linear-gradient(90deg,#fff,#7dd3fc 45%,#c4b5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.subtitle{max-width:780px;margin:auto;color:var(--muted);font-size:1.08rem;line-height:1.7}
+.notice{
+  margin:28px auto 0;max-width:900px;padding:14px 18px;border:1px solid var(--line);
+  border-radius:14px;background:#ffffff;color:#334155;font-size:.88rem
+}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0 30px}
+.filter{
+  border:1px solid var(--line);background:#ffffff;color:#334155;
+  padding:9px 14px;border-radius:999px;cursor:pointer;font:inherit;font-weight:700
+}
+.filter.active,.filter:hover{background:#172b4c;border-color:#3b82f6;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:50px}
+.card{
+  position:relative;overflow:hidden;padding:22px;border:1px solid var(--line);
+  border-radius:20px;background:var(--card);backdrop-filter:blur(12px);
+  box-shadow:0 14px 40px rgba(0,0,0,.16);transition:.2s
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(125,211,252,.32)}
+.card:before{
+  content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent)
+}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.logo{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:var(--accent);
+  color:#fff;font-weight:900;font-size:1.1rem;box-shadow:0 7px 18px rgba(15,23,42,.14)
+}
+.name{font-size:1.15rem;font-weight:850}.maker{color:var(--muted);font-size:.82rem;margin-top:2px}
+.model{display:inline-block;margin:0 0 11px;padding:5px 9px;border-radius:8px;background:#eef4ff;color:#1e40af;font-size:.76rem;font-weight:800}
+.desc{color:#475569;line-height:1.6;font-size:.93rem;min-height:70px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:15px 0}
+.tag{padding:5px 8px;border-radius:7px;background:#f1f5f9;color:#475569;font-size:.72rem}
+.link{
+  display:inline-flex;align-items:center;gap:6px;color:#2563eb;text-decoration:none;
+  font-size:.82rem;font-weight:800;margin-top:3px
+}
+.link:hover{text-decoration:underline}
+.section-title{margin:0 0 18px;font-size:1.35rem;letter-spacing:-.02em}
+footer{border-top:1px solid var(--line);padding:30px 0 45px;text-align:center;color:#64748b;font-size:.82rem;line-height:1.6}
+footer strong{color:#475569}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.container{width:min(100% - 24px,1180px)}header{padding-top:46px}.grid{grid-template-columns:1fr}.card{padding:19px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <div class="eyebrow">Oficina de IA • 2026</div>
+  <h1>Large Language <span>Models</span></h1>
+  <p class="subtitle">
+    Alguns dos principais modelos e famílias de LLMs disponíveis atualmente.
+    O objetivo aqui não é criar um ranking, mas mostrar a diversidade do ecossistema.
+  </p>
+  <div class="notice">
+    <strong>Importante:</strong> os modelos mudam rapidamente. Esta página é uma fotografia
+    do ecossistema em <strong>Setembro de 2026</strong>, com links para as fontes
+    oficiais dos fabricantes.
+  </div>
+</header>
+
+<div class="toolbar" aria-label="Filtros">
+  <button class="filter active" data-filter="all">Todos</button>
+  <button class="filter" data-filter="closed">Proprietários</button>
+  <button class="filter" data-filter="open">Open / open-weight</button>
+  <button class="filter" data-filter="multimodal">Multimodais</button>
+  <button class="filter" data-filter="reasoning">Raciocínio</button>
+</div>
+
+<section>
+<h2 class="section-title">Modelos em destaque</h2>
+<div class="grid" id="grid">
+
+<article class="card" data-type="closed multimodal reasoning" style="--accent:#10a37f">
+<div class="top"><div class="logo" title="GPT">G</div><div><div class="name">GPT</div><div class="maker">OpenAI</div></div></div>
+<div class="model">GPT-5.6</div>
+<div class="desc">Família de modelos da OpenAI para linguagem, raciocínio, código, análise e tarefas multimodais.</div>
+<div class="tags"><span class="tag">Raciocínio</span><span class="tag">Código</span><span class="tag">Multimodal</span></div>
+<a class="link" href="https://platform.openai.com/docs/models" target="_blank">OpenAI ↗</a>
+</article>
+
+<article class="card" data-type="closed multimodal reasoning" style="--accent:#d97757">
+<div class="top"><div class="logo" title="Claude">C</div><div><div class="name">Claude</div><div class="maker">Anthropic</div></div></div>
+<div class="model">Claude Fable 5.1 • Opus 5 • Sonnet 5</div>
+<div class="desc">Família voltada a conhecimento, raciocínio, programação, uso de ferramentas e tarefas agentic.</div>
+<div class="tags"><span class="tag">Raciocínio</span><span class="tag">Agentes</span><span class="tag">Código</span></div>
+<a class="link" href="https://www.anthropic.com/claude" target="_blank">Anthropic ↗</a>
+</article>
+
+<article class="card" data-type="closed multimodal reasoning" style="--accent:#4285f4">
+<div class="top"><div class="logo" title="Gemini">✦</div><div><div class="name">Gemini</div><div class="maker">Google DeepMind</div></div></div>
+<div class="model">Gemini 3.8 Flash • 3.1 Pro</div>
+<div class="desc">Família multimodal do Google, com modelos para texto, imagem, áudio, vídeo, código e tarefas agentic.</div>
+<div class="tags"><span class="tag">Multimodal</span><span class="tag">Long context</span><span class="tag">Agentes</span></div>
+<a class="link" href="https://deepmind.google/models/gemini/" target="_blank">Google DeepMind ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#1877f2">
+<div class="top"><div class="logo" title="Llama">∞</div><div><div class="name">Llama</div><div class="maker">Meta</div></div></div>
+<div class="model">Llama 4 • Muse Spark</div>
+<div class="desc">Família de modelos com pesos disponíveis para uso e desenvolvimento em diferentes ambientes.</div>
+<div class="tags"><span class="tag">Open-weight</span><span class="tag">Multimodal</span><span class="tag">Local</span></div>
+<a class="link" href="https://www.llama.com/" target="_blank">Meta Llama ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#ff6a00">
+<div class="top"><div class="logo" title="Qwen">Q</div><div><div class="name">Qwen</div><div class="maker">Alibaba</div></div></div>
+<div class="model">Qwen3.8-Max</div>
+<div class="desc">Grande família multimodal com modelos voltados a raciocínio, código, visão e tarefas de longo horizonte.</div>
+<div class="tags"><span class="tag">Open-weight</span><span class="tag">Visão</span><span class="tag">Código</span></div>
+<a class="link" href="https://qwenlm.ai/" target="_blank">Qwen ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#4d7cff">
+<div class="top"><div class="logo" title="DeepSeek">DS</div><div><div class="name">DeepSeek</div><div class="maker">DeepSeek</div></div></div>
+<div class="model">DeepSeek-V4.1-Flash • V4-Pro</div>
+<div class="desc">Família com forte presença em raciocínio, código, agentes e contexto longo; inclui modelos com pesos abertos.</div>
+<div class="tags"><span class="tag">Raciocínio</span><span class="tag">Código</span><span class="tag">Open</span></div>
+<a class="link" href="https://www.deepseek.com/" target="_blank">DeepSeek ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#ff7a18">
+<div class="top"><div class="logo" title="Mistral">M</div><div><div class="name">Mistral</div><div class="maker">Mistral AI</div></div></div>
+<div class="model">Mistral Large 3 • Medium 3.5 • Small 4</div>
+<div class="desc">Família europeia com modelos gerais, multimodais, de raciocínio e especializados em código.</div>
+<div class="tags"><span class="tag">Open-weight</span><span class="tag">Multimodal</span><span class="tag">Código</span></div>
+<a class="link" href="https://mistral.ai/models/" target="_blank">Mistral ↗</a>
+</article>
+
+<article class="card" data-type="closed multimodal reasoning" style="--accent:#111827">
+<div class="top"><div class="logo" title="Grok">X</div><div><div class="name">Grok</div><div class="maker">xAI</div></div></div>
+<div class="model">Grok 4.7</div>
+<div class="desc">Modelo da xAI orientado a conhecimento, programação, raciocínio e tarefas de longa duração.</div>
+<div class="tags"><span class="tag">Raciocínio</span><span class="tag">Código</span><span class="tag">Agentes</span></div>
+<a class="link" href="https://x.ai/grok" target="_blank">xAI ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#7c3aed">
+<div class="top"><div class="logo" title="Kimi">K</div><div><div class="name">Kimi</div><div class="maker">Moonshot AI</div></div></div>
+<div class="model">Kimi K3</div>
+<div class="desc">Modelo aberto de grande escala, com foco em raciocínio, programação, conhecimento e contexto muito longo.</div>
+<div class="tags"><span class="tag">Open</span><span class="tag">1M contexto</span><span class="tag">Visão</span></div>
+<a class="link" href="https://www.kimi.com/" target="_blank">Kimi ↗</a>
+</article>
+
+<article class="card" data-type="open reasoning" style="--accent:#6366f1">
+<div class="top"><div class="logo" title="GLM">GLM</div><div><div class="name">GLM</div><div class="maker">Z.ai / Zhipu AI</div></div></div>
+<div class="model">GLM-5.3</div>
+<div class="desc">Família de modelos de linguagem com versões abertas e foco em raciocínio, programação e agentes.</div>
+<div class="tags"><span class="tag">Open-weight</span><span class="tag">Raciocínio</span><span class="tag">Código</span></div>
+<a class="link" href="https://z.ai/" target="_blank">Z.ai ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#e11d48">
+<div class="top"><div class="logo" title="MiniMax">MM</div><div><div class="name">MiniMax</div><div class="maker">MiniMax</div></div></div>
+<div class="model">MiniMax M2.5</div>
+<div class="desc">Família de modelos voltada a raciocínio, agentes e programação, com opções de acesso aberto.</div>
+<div class="tags"><span class="tag">Agentes</span><span class="tag">Código</span><span class="tag">Open</span></div>
+<a class="link" href="https://www.minimax.io/" target="_blank">MiniMax ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal reasoning" style="--accent:#06b6d4">
+<div class="top"><div class="logo" title="Command">Co</div><div><div class="name">Command</div><div class="maker">Cohere</div></div></div>
+<div class="model">Command A+</div>
+<div class="desc">Modelo empresarial com texto e visão, raciocínio, ferramentas, RAG, agentes e suporte multilíngue.</div>
+<div class="tags"><span class="tag">RAG</span><span class="tag">Agentes</span><span class="tag">Multilíngue</span></div>
+<a class="link" href="https://cohere.com/command" target="_blank">Cohere ↗</a>
+</article>
+
+<article class="card" data-type="closed multimodal" style="--accent:#8b5cf6">
+<div class="top"><div class="logo" title="Nova">N</div><div><div class="name">Nova</div><div class="maker">Amazon</div></div></div>
+<div class="model">Amazon Nova</div>
+<div class="desc">Família de modelos generativos da AWS para aplicações de linguagem, multimodalidade e agentes.</div>
+<div class="tags"><span class="tag">AWS</span><span class="tag">Multimodal</span><span class="tag">Agentes</span></div>
+<a class="link" href="https://aws.amazon.com/ai/generative-ai/nova/" target="_blank">Amazon ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal" style="--accent:#16a34a">
+<div class="top"><div class="logo" title="Gemma">Ge</div><div><div class="name">Gemma</div><div class="maker">Google</div></div></div>
+<div class="model">Gemma 4</div>
+<div class="desc">Família de modelos abertos e mais leves do ecossistema Google, voltada a desenvolvimento e execução local.</div>
+<div class="tags"><span class="tag">Open</span><span class="tag">Local</span><span class="tag">Multimodal</span></div>
+<a class="link" href="https://deepmind.google/models/gemma/" target="_blank">Google DeepMind ↗</a>
+</article>
+
+<article class="card" data-type="open" style="--accent:#64748b">
+<div class="top"><div class="logo" title="Granite">Gr</div><div><div class="name">Granite</div><div class="maker">IBM</div></div></div>
+<div class="model">Granite</div>
+<div class="desc">Família de modelos abertos da IBM para aplicações empresariais, código, linguagem e uso com dados corporativos.</div>
+<div class="tags"><span class="tag">Open</span><span class="tag">Enterprise</span><span class="tag">Código</span></div>
+<a class="link" href="https://www.ibm.com/granite" target="_blank">IBM Granite ↗</a>
+</article>
+
+<article class="card" data-type="open multimodal" style="--accent:#f97316">
+<div class="top"><div class="logo" title="Hunyuan">H</div><div><div class="name">Hunyuan</div><div class="maker">Tencent</div></div></div>
+<div class="model">Hunyuan</div>
+<div class="desc">Ecossistema de modelos da Tencent, com versões para linguagem, visão, vídeo, código e outras modalidades.</div>
+<div class="tags"><span class="tag">Open</span><span class="tag">Multimodal</span><span class="tag">Código</span></div>
+<a class="link" href="https://hunyuan.tencent.com/" target="_blank">Tencent Hunyuan ↗</a>
+</article>
+
+<article class="card" data-type="closed multimodal reasoning" style="--accent:#ef4444">
+<div class="top"><div class="logo" title="ERNIE">E</div><div><div class="name">ERNIE</div><div class="maker">Baidu</div></div></div>
+<div class="model">ERNIE</div>
+<div class="desc">Família de modelos da Baidu para linguagem e aplicações multimodais, com forte presença no ecossistema chinês.</div>
+<div class="tags"><span class="tag">Multimodal</span><span class="tag">Raciocínio</span><span class="tag">Agentes</span></div>
+<a class="link" href="https://ernie.baidu.com/" target="_blank">Baidu ↗</a>
+</article>
+
+</div>
+</section>
+
+<footer>
+  <strong>Não existe um único “melhor” LLM.</strong><br>
+  Modelos, versões, preços e capacidades mudam rapidamente. Consulte sempre a documentação oficial.
+</footer>
+</div>
+
+<script>
+const buttons=document.querySelectorAll(".filter");
+const cards=document.querySelectorAll(".card");
+buttons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    buttons.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const f=btn.dataset.filter;
+    cards.forEach(card=>{
+      card.style.display=(f==="all" || card.dataset.type.split(" ").includes(f)) ? "" : "none";
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Prompt — Introdução Científica</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#5d687a;--primary:#3157d5;--dark:#2444aa;--soft:#eaf0ff;--border:#dfe5ef;--green:#16866f;--greenSoft:#eaf8f4;--shadow:0 10px 30px rgba(31,48,80,.08)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+.container{width:min(920px,calc(100% - 32px));margin:auto;padding:42px 0 50px}.card{background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.header{padding:34px 38px 28px;background:linear-gradient(135deg,#fff,#eef3ff);border-bottom:1px solid var(--border)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--soft);color:var(--primary);font-size:.76rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+h1{margin:14px 0 8px;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.12}.subtitle{margin:0;color:var(--muted);font-size:1.05rem;line-height:1.6}
+.content{padding:32px 38px 36px}label{display:block;font-weight:750;margin-bottom:9px}input{width:100%;border:1px solid #cbd3e0;border-radius:13px;padding:15px 16px;font:inherit;font-size:1rem;color:var(--text);outline:none}
+input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(49,87,213,.10)}.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+button{border:0;border-radius:11px;padding:12px 17px;font:inherit;font-weight:750;cursor:pointer}.primary{background:var(--primary);color:#fff}.primary:hover{background:var(--dark)}
+.secondary{background:#eef1f6;color:#26334d}.secondary:hover{background:#e3e7ee}
+.result{margin-top:28px;display:none}.result.show{display:block}.result-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:10px}.result-head h2{margin:0;font-size:1.15rem}
+.copy{background:var(--greenSoft);color:var(--green)}.prompt{background:#111827;color:#eef2ff;border-radius:15px;padding:22px;white-space:pre-wrap;line-height:1.72;font-family:Consolas,"Liberation Mono",monospace;font-size:.94rem;overflow:auto}
+.hint{margin-top:18px;padding:15px 17px;border:1px solid var(--border);border-radius:13px;background:#fafbfd;color:var(--muted);font-size:.91rem}
+footer{text-align:center;color:var(--muted);font-size:.9rem;margin-top:20px;line-height:1.5}
+@media(max-width:600px){.container{width:calc(100% - 20px);padding:20px 0 30px}.header,.content{padding:24px 20px}.result-head{align-items:flex-start;flex-direction:column}.copy{width:100%}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<header class="header">
+<span class="badge">Pesquisa científica + IA generativa</span>
+<h1>Gerador de Prompt</h1>
+<p class="subtitle">Construa um comando para ajudar a estruturar a introdução de um artigo científico, sem deixar a IA escrever o artigo.</p>
+</header>
+<main class="content">
+<label for="tema">Qual é o tema do seu artigo?</label>
+<input id="tema" type="text" placeholder="Ex.: consumo de alimentos ultraprocessados e excesso de peso" autocomplete="off">
+<div class="actions">
+<button class="primary" id="generate">Gerar prompt</button>
+<button class="secondary" id="clear">Limpar</button>
+</div>
+<section class="result" id="result">
+<div class="result-head"><h2>Prompt gerado</h2><button class="copy" id="copy">Copiar prompt</button></div>
+<div class="prompt" id="prompt"></div>
+<div class="hint"><strong>Use a IA para estruturar o raciocínio.</strong> As evidências científicas, referências e interpretações sugeridas pela IA ainda precisam ser verificadas pelo pesquisador.</div>
+</section>
+</main>
+</div>
+<footer>Lembre-se: use a IA para pensar melhor, e não para pensar no seu lugar.</footer>
+</div>
+<script>
+const tema=document.getElementById("tema"),generate=document.getElementById("generate"),clear=document.getElementById("clear"),copy=document.getElementById("copy"),result=document.getElementById("result"),promptBox=document.getElementById("prompt");
+function gerarPrompt(){const valor=tema.value.trim();if(!valor){tema.focus();return;}const prompt=`Estou escrevendo um artigo científico sobre ${valor}.
+Não escreva o artigo.
+Ajude-me a construir a estrutura argumentativa da introdução.
+Quero:
+    1. contexto geral;
+    2. problema;
+    3. lacuna na literatura;
+    4. relevância;
+    5. objetivo.
+Para cada etapa, explique que tipo de evidência científica deveria sustentá-la.`;promptBox.textContent=prompt;result.classList.add("show");result.scrollIntoView({behavior:"smooth",block:"nearest"});}
+generate.addEventListener("click",gerarPrompt);tema.addEventListener("keydown",e=>{if(e.key==="Enter")gerarPrompt()});
+clear.addEventListener("click",()=>{tema.value="";promptBox.textContent="";result.classList.remove("show");tema.focus()});
+copy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(promptBox.textContent);const old=copy.textContent;copy.textContent="Copiado!";setTimeout(()=>copy.textContent=old,1600)}catch(e){const r=document.createRange();r.selectNodeContents(promptBox);const s=window.getSelection();s.removeAllRanges();s.addRange(r)}});
+</script>
+</body>
+</html>

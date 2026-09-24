@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.A.R.T.E. — Como criar comandos de IA para pesquisa científica</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#fff; --text:#172033; --muted:#5d687a;
+  --primary:#3157d5; --primary2:#2444aa; --soft:#eaf0ff;
+  --green:#16866f; --green-soft:#eaf8f4; --orange:#c66b19;
+  --orange-soft:#fff4e8; --border:#dfe5ef;
+  --shadow:0 10px 30px rgba(31,48,80,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+background:var(--bg);color:var(--text);line-height:1.65}
+.container{max-width:1120px;margin:auto;padding:28px 22px 60px}
+.hero{background:linear-gradient(135deg,#fff,#eef3ff);border:1px solid var(--border);
+border-radius:24px;padding:44px;box-shadow:var(--shadow);margin-bottom:24px}
+.badge{display:inline-block;background:var(--soft);color:var(--primary);font-weight:800;
+font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;margin:15px 0 10px}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:850px;margin:0}
+nav{position:sticky;top:10px;z-index:10;background:rgba(255,255,255,.94);
+backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:16px;
+padding:10px;margin:0 0 24px;box-shadow:var(--shadow);display:flex;gap:7px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);padding:7px 11px;border-radius:9px;font-size:.9rem;font-weight:700}
+nav a:hover{background:var(--soft);color:var(--primary)}
+.section{background:var(--card);border:1px solid var(--border);border-radius:20px;
+padding:30px;margin:22px 0;box-shadow:var(--shadow)}
+h2{font-size:1.7rem;line-height:1.2;margin:0 0 18px}
+h3{font-size:1.18rem;margin:20px 0 8px}
+p{margin:8px 0}
+.lead{font-size:1.08rem;color:#3d4759}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.card{border:1px solid var(--border);border-radius:16px;padding:20px;background:#fbfcfe}
+.card .letter{width:44px;height:44px;border-radius:12px;background:var(--primary);color:white;
+display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.25rem;margin-bottom:12px}
+.card h3{margin:0 0 7px}
+.tag{display:inline-block;font-size:.78rem;font-weight:800;padding:4px 8px;border-radius:7px;
+background:var(--soft);color:var(--primary);margin-bottom:8px}
+.example{background:#f7f9fc;border-left:4px solid var(--green);padding:17px 19px;
+border-radius:0 12px 12px 0;margin:14px 0}
+.warning{background:var(--orange-soft);border:1px solid #f0d0ad;padding:18px 20px;border-radius:14px}
+.good{background:var(--green-soft);border:1px solid #ccebe3;padding:18px 20px;border-radius:14px}
+.prompt{background:#111827;color:#eef2ff;border-radius:16px;padding:23px;
+font-family:"SFMono-Regular",Consolas,monospace;font-size:.92rem;line-height:1.7;
+white-space:pre-wrap;overflow:auto}
+.compare{width:100%;border-collapse:collapse;margin-top:15px;font-size:.94rem}
+.compare th,.compare td{border:1px solid var(--border);padding:13px;vertical-align:top;text-align:left}
+.compare th{background:#f3f6fb}
+.compare .bad{background:#fff8f8}.compare .better{background:#f3fbf8}
+.step{display:grid;grid-template-columns:48px 1fr;gap:15px;align-items:start;margin:15px 0}
+.stepnum{width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;
+display:flex;align-items:center;justify-content:center;font-weight:900}
+.quote{font-size:1.3rem;font-weight:750;text-align:center;padding:25px;background:linear-gradient(135deg,#f0f4ff,#f8fbff);
+border-radius:16px;border:1px solid var(--border)}
+.check{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.check div{border:1px solid var(--border);padding:13px;border-radius:10px;background:#fbfcfe}
+footer{text-align:center;color:var(--muted);padding:25px 10px 0;font-size:.9rem}
+@media(max-width:650px){.hero,.section{padding:22px}.container{padding:15px 12px 40px}nav{position:static}}
+</style>
+</head>
+<body>
+<main class="container">
+
+<header class="hero">
+  <span class="badge">IA generativa na pesquisa científica</span>
+  <h1>P.A.R.T.E.</h1>
+  <p>5 elementos básicos para criar comandos de IA mais claros, contextualizados e úteis — especialmente para pesquisa científica em Nutrição.</p>
+</header>
+
+<nav>
+  <a href="#ideia">A ideia</a>
+  <a href="#comparacao">Antes × depois</a>
+  <a href="#part">P.A.R.T.E.</a>
+  <a href="#exemplo">Exemplo completo</a>
+  <a href="#pesquisa">Aplicação científica</a>
+  <a href="#regra">Regra de ouro</a>
+</nav>
+
+<section class="section" id="ideia">
+<h2>O que é P.A.R.T.E.?</h2>
+<p class="lead">Um bom comando não precisa necessariamente ser longo. Ele precisa fornecer à IA o contexto necessário para realizar a tarefa.</p>
+<div class="grid" style="margin-top:20px">
+  <div class="card"><span class="tag">P</span><h3>Perfil</h3><p>Quem sou?</p></div>
+  <div class="card"><span class="tag">A</span><h3>Alvo</h3><p>O que quero alcançar?</p></div>
+  <div class="card"><span class="tag">R</span><h3>Recebedores</h3><p>Para quem é?</p></div>
+  <div class="card"><span class="tag">T</span><h3>Tema</h3><p>Sobre o que estamos trabalhando?</p></div>
+  <div class="card"><span class="tag">E</span><h3>Estrutura</h3><p>Como quero receber o resultado?</p></div>
+</div>
+<div class="quote" style="margin-top:22px">P.A.R.T.E. = Quem sou? + O que quero? + Para quem? + Sobre o quê? + Como?</div>
+</section>
+
+<section class="section" id="comparacao">
+<h2>Por que um comando estruturado fica melhor?</h2>
+<p>Compare um pedido genérico com um comando que fornece contexto. A diferença não está apenas no tamanho: está na <strong>qualidade das informações que orientam a resposta</strong>.</p>
+
+<table class="compare">
+<thead><tr><th>Comando genérico</th><th>Comando com contexto</th></tr></thead>
+<tbody>
+<tr>
+<td class="bad">“Me ajude a fazer uma pesquisa sobre alimentos ultraprocessados.”</td>
+<td class="better">“Sou nutricionista e estou planejando uma pesquisa em Epidemiologia Nutricional. Quero identificar possíveis perguntas de pesquisa sobre o consumo de alimentos ultraprocessados entre estudantes universitários e sua relação com excesso de peso.”</td>
+</tr>
+<tr>
+<td class="bad">A IA precisa adivinhar o objetivo, a população, o contexto e o tipo de resultado desejado.</td>
+<td class="better">O pesquisador informa as decisões que já tomou e deixa explícitas as que ainda precisam ser discutidas.</td>
+</tr>
+<tr>
+<td class="bad">Pode gerar uma resposta ampla, genérica e pouco útil para o planejamento real.</td>
+<td class="better">Pode produzir possibilidades mais alinhadas ao problema científico que está sendo construído.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="warning" style="margin-top:18px">
+<strong>Importante:</strong> acrescentar contexto não significa pedir para a IA decidir pela pesquisadora ou pelo pesquisador. O objetivo é tornar a interação mais precisa.
+</div>
+</section>
+
+<section class="section" id="part">
+<h2>Os 5 elementos do P.A.R.T.E.</h2>
+
+<div class="grid">
+<article class="card">
+<div class="letter">P</div>
+<h3>Perfil</h3>
+<p><strong>Quem sou no contexto da pesquisa?</strong></p>
+<p>Informe o papel, formação ou contexto relevante para a tarefa.</p>
+<ul>
+<li>Nutricionista</li><li>Pesquisador(a)</li><li>Professor(a)</li>
+<li>Estudante de Nutrição</li><li>Mestrando(a) ou doutorando(a)</li>
+</ul>
+<div class="example"><strong>Exemplo:</strong><br>“Sou nutricionista e estou planejando uma pesquisa na área de Epidemiologia Nutricional.”</div>
+</article>
+
+<article class="card">
+<div class="letter">A</div>
+<h3>Alvo</h3>
+<p><strong>O que quero alcançar?</strong></p>
+<p>Defina o objetivo da interação com a IA.</p>
+<ul>
+<li>Identificar problemas ou perguntas de pesquisa</li>
+<li>Transformar um tema amplo em questões específicas</li>
+<li>Identificar variáveis</li>
+<li>Criticar uma metodologia</li>
+<li>Identificar lacunas</li>
+<li>Avaliar hipóteses</li>
+</ul>
+</article>
+
+<article class="card">
+<div class="letter">R</div>
+<h3>Recebedores</h3>
+<p><strong>Para quem será produzido o resultado?</strong></p>
+<p>Defina o público que utilizará ou lerá a resposta.</p>
+<ul>
+<li>Estudantes de graduação em Nutrição</li>
+<li>Pesquisadores em Epidemiologia</li>
+<li>Orientador(a) de mestrado</li>
+<li>Estudantes iniciantes</li>
+<li>Pesquisadores experientes</li>
+</ul>
+</article>
+
+<article class="card">
+<div class="letter">T</div>
+<h3>Tema</h3>
+<p><strong>Sobre o que estamos trabalhando?</strong></p>
+<p>Apresente o conteúdo científico e os limites do problema.</p>
+<ul>
+<li>Tema e contexto</li><li>População</li><li>Exposição ou intervenção</li>
+<li>Desfecho</li><li>Desenho do estudo</li><li>Fatores de confusão</li>
+</ul>
+<div class="example"><strong>Também podem ser definidos limites:</strong> não estabelecer causalidade; considerar confundidores; não inventar referências; trabalhar com determinada perspectiva epidemiológica.</div>
+</article>
+
+<article class="card">
+<div class="letter">E</div>
+<h3>Estrutura</h3>
+<p><strong>Como quero receber o resultado?</strong></p>
+<p>Especifique o formato que será mais útil.</p>
+<ul>
+<li>Tabela</li><li>Lista</li><li>Passo a passo</li>
+<li>Matriz de análise</li><li>Pergunta → hipótese → variáveis → desenho</li>
+<li>Indicação das decisões pendentes</li>
+</ul>
+<div class="example"><strong>Exemplo:</strong><br>“Não escreva o projeto de pesquisa. Quero possibilidades para discutir com meu orientador.”</div>
+</article>
+</div>
+</section>
+
+<section class="section">
+<h2>Aplicando cada elemento a uma pesquisa</h2>
+
+<div class="step"><div class="stepnum">P</div><div><strong>Perfil</strong><p>“Sou nutricionista e estou planejando uma pesquisa na área de Epidemiologia Nutricional.”</p></div></div>
+<div class="step"><div class="stepnum">A</div><div><strong>Alvo</strong><p>“Quero identificar possíveis perguntas de pesquisa e avaliar quais poderiam ser investigadas em um estudo transversal.”</p></div></div>
+<div class="step"><div class="stepnum">R</div><div><strong>Recebedores</strong><p>“O resultado será discutido com meu orientador de mestrado.”</p></div></div>
+<div class="step"><div class="stepnum">T</div><div><strong>Tema</strong><p>“O tema é o consumo de alimentos ultraprocessados entre estudantes universitários. Tenho interesse em investigar sua relação com excesso de peso, considerando possíveis fatores de confusão.”</p></div></div>
+<div class="step"><div class="stepnum">E</div><div><strong>Estrutura</strong><p>“Apresente cinco possibilidades em uma tabela contendo: pergunta de pesquisa, população, exposição, desfecho, possíveis confundidores e hipótese. Para cada possibilidade, indique também quais decisões ainda precisam ser tomadas pelo pesquisador. Não escreva o projeto de pesquisa.”</p></div></div>
+</section>
+
+<section class="section" id="exemplo">
+<h2>Exemplo completo de comando</h2>
+<p>Agora, juntando os cinco elementos em uma única instrução:</p>
+<div class="prompt">Sou nutricionista e estou planejando uma pesquisa na área de Epidemiologia Nutricional.
+
+Quero identificar possíveis perguntas de pesquisa e avaliar quais poderiam ser investigadas em um estudo transversal.
+
+O resultado será discutido com meu orientador de mestrado.
+
+O tema é o consumo de alimentos ultraprocessados entre estudantes universitários. Tenho interesse em investigar sua relação com excesso de peso, considerando possíveis fatores de confusão.
+
+Apresente cinco possibilidades em uma tabela contendo:
+- pergunta de pesquisa;
+- população;
+- exposição;
+- desfecho;
+- possíveis confundidores;
+- hipótese.
+
+Para cada possibilidade, indique também quais decisões ainda precisam ser tomadas pelo pesquisador.
+
+Não escreva o projeto de pesquisa.</div>
+</section>
+
+<section class="section" id="pesquisa">
+<h2>P.A.R.T.E. aplicado ao raciocínio científico</h2>
+<p>O método pode ser usado para diferentes etapas da pesquisa. O ponto central é pedir à IA para <strong>apoiar o raciocínio</strong>, e não para substituir as decisões científicas.</p>
+
+<div class="grid">
+<div class="card"><h3>1. Problema de pesquisa</h3><p>Peça possibilidades de problemas, perguntas e recortes. Depois avalie relevância, originalidade e viabilidade.</p></div>
+<div class="card"><h3>2. Hipóteses</h3><p>Peça hipóteses alternativas e possíveis explicações. Depois verifique se são testáveis e coerentes com o conhecimento existente.</p></div>
+<div class="card"><h3>3. Variáveis</h3><p>Peça sugestões de exposição, desfecho, mediadores e possíveis confundidores.</p></div>
+<div class="card"><h3>4. Desenho do estudo</h3><p>Peça que diferentes desenhos sejam comparados às perguntas. A escolha metodológica continua sendo do pesquisador.</p></div>
+<div class="card"><h3>5. Análise</h3><p>Peça explicações sobre métodos estatísticos, pressupostos e alternativas. Valide a adequação ao desenho e aos dados.</p></div>
+<div class="card"><h3>6. Escrita</h3><p>Peça organização, clareza e crítica textual sem delegar à IA a interpretação dos resultados.</p></div>
+</div>
+
+<div class="good" style="margin-top:20px">
+<strong>Uma boa estratégia:</strong> pedir à IA que mostre também <em>o que ainda não foi decidido</em>. Isso transforma a resposta em uma ferramenta para organizar o pensamento científico.
+</div>
+</section>
+
+<section class="section">
+<h2>O que muda quando usamos P.A.R.T.E.?</h2>
+<div class="check">
+<div>✓ Menos ambiguidades</div>
+<div>✓ Mais contexto científico</div>
+<div>✓ Objetivos mais claros</div>
+<div>✓ Respostas mais direcionadas</div>
+<div>✓ Melhor definição do público</div>
+<div>✓ Formato de resposta controlado</div>
+<div>✓ Limites metodológicos explícitos</div>
+<div>✓ Mais espaço para o pesquisador tomar decisões</div>
+</div>
+</section>
+
+<section class="section" id="regra">
+<h2>A regra mais importante</h2>
+<div class="quote">“A IA pode ajudar a estruturar o problema.<br><strong>A decisão sobre o problema continua sendo do pesquisador.</strong>”</div>
+<p style="margin-top:20px">A IA pode sugerir perguntas, variáveis, hipóteses e desenhos possíveis. Cabe ao pesquisador avaliar relevância científica, viabilidade, validade metodológica, ética e adequação ao conhecimento existente.</p>
+
+<div class="warning">
+<strong>P.A.R.T.E. não é uma fórmula mágica.</strong><br>
+É uma forma simples de lembrar quais informações podem ser importantes para orientar uma interação com uma IA generativa.
+</div>
+</section>
+
+<section class="section">
+<h2>Para levar para a prática</h2>
+<div class="grid">
+<div class="card"><h3>Antes de perguntar</h3><p>O que exatamente quero descobrir, comparar, criticar ou produzir?</p></div>
+<div class="card"><h3>Durante o comando</h3><p>Dei contexto suficiente para que a IA não precise adivinhar o que quero?</p></div>
+<div class="card"><h3>Depois da resposta</h3><p>Quais partes precisam ser verificadas? Quais decisões ainda são minhas?</p></div>
+</div>
+</section>
+
+<footer>
+Material para a oficina “IA Generativa na Pesquisa Científica em Nutrição”.<br>
+Use a IA para pensar melhor — e não para pensar no seu lugar.
+</footer>
+
+</main>
+</body>
+</html>
