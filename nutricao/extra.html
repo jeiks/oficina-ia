@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco de Prompts Científicos — 50 coisas para pedir à IA</title>
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#fff;
+  --text:#172033;
+  --muted:#5d687a;
+  --primary:#3157d5;
+  --primary-dark:#2444aa;
+  --soft:#eaf0ff;
+  --green:#16866f;
+  --green-soft:#eaf8f4;
+  --orange:#c66b19;
+  --orange-soft:#fff4e8;
+  --purple:#7651c9;
+  --purple-soft:#f2edff;
+  --border:#dfe5ef;
+  --shadow:0 10px 30px rgba(31,48,80,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.65;
+}
+.container{width:min(1150px,calc(100% - 30px));margin:auto;padding:28px 0 55px}
+.hero{
+  background:linear-gradient(135deg,#fff,#eef3ff);
+  border:1px solid var(--border); border-radius:25px; padding:40px;
+  box-shadow:var(--shadow); margin-bottom:20px;
+}
+.badge{
+  display:inline-block;background:var(--soft);color:var(--primary);
+  padding:6px 10px;border-radius:999px;font-size:.75rem;font-weight:850;
+  letter-spacing:.07em;text-transform:uppercase;
+}
+h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;margin:15px 0 10px}
+.hero p{margin:0;color:var(--muted);font-size:1.08rem;max-width:900px}
+nav{
+  position:sticky;top:10px;z-index:10;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:15px;
+  padding:9px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px
+}
+nav a{color:var(--muted);text-decoration:none;font-weight:750;font-size:.88rem;padding:7px 10px;border-radius:8px}
+nav a:hover{background:var(--soft);color:var(--primary)}
+.section{
+  background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:29px;margin:20px 0;box-shadow:var(--shadow)
+}
+h2{font-size:1.65rem;line-height:1.2;margin:0 0 18px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+.intro{
+  background:#fafbfd;border:1px solid var(--border);border-radius:14px;
+  padding:17px 19px;color:#3d4759
+}
+.notice{
+  background:var(--green-soft);border:1px solid #ccebe3;border-radius:14px;
+  padding:17px 19px;margin-top:17px
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.task{
+  border:1px solid var(--border);border-radius:15px;padding:19px;background:#fbfcfe
+}
+.task .num{
+  display:inline-flex;width:35px;height:35px;align-items:center;justify-content:center;
+  border-radius:10px;background:var(--soft);color:var(--primary);font-weight:900;margin-bottom:9px
+}
+.task h3{margin:0 0 6px}
+.task p{margin:0;color:var(--muted);font-size:.93rem}
+.prompt{
+  margin-top:14px;background:#111827;color:#eef2ff;border-radius:13px;padding:18px;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.88rem;
+  line-height:1.7;white-space:pre-wrap;overflow:auto
+}
+.copy{
+  border:0;border-radius:9px;background:#27344d;color:white;padding:7px 10px;
+  font-weight:750;cursor:pointer;margin-top:9px
+}
+.copy:hover{background:#344563}
+.prompt-wrap{position:relative}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter{
+  border:1px solid var(--border);background:#fff;color:var(--muted);
+  padding:8px 12px;border-radius:999px;font-weight:750;cursor:pointer
+}
+.filter.active,.filter:hover{background:var(--soft);color:var(--primary);border-color:#c7d3f4}
+.fifty{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px
+}
+.item{
+  background:#fbfcfe;border:1px solid var(--border);border-radius:12px;
+  padding:13px 15px;display:flex;gap:12px
+}
+.item strong{color:var(--primary);min-width:28px}
+.item span{color:#364156}
+.footer{
+  text-align:center;color:var(--muted);font-size:.9rem;padding:15px 5px
+}
+.search{
+  width:100%;border:1px solid var(--border);border-radius:12px;padding:13px 15px;
+  font:inherit;margin-bottom:14px;outline:none
+}
+.search:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(49,87,213,.1)}
+@media(max-width:650px){
+  .container{width:calc(100% - 20px);padding-top:15px}
+  .hero,.section{padding:22px}
+  nav{position:static}
+}
+</style>
+</head>
+<body>
+<main class="container">
+
+<header class="hero">
+  <span class="badge">Oficina · IA Generativa na Pesquisa Científica</span>
+  <h1>Banco de Prompts Científicos</h1>
+  <p>
+    Prompts organizados por etapa da pesquisa científica + 50 coisas que você pode
+    pedir para uma IA fazer durante o processo de pesquisa.
+  </p>
+</header>
+
+<nav>
+  <a href="#banco">Banco de prompts</a>
+  <a href="#pergunta">Pergunta</a>
+  <a href="#literatura">Literatura</a>
+  <a href="#metodo">Método</a>
+  <a href="#dados">Dados</a>
+  <a href="#escrita">Escrita</a>
+  <a href="#revisao">Revisão</a>
+  <a href="#50">50 coisas</a>
+</nav>
+
+<section class="section" id="banco">
+<h2>1. Banco de prompts científicos</h2>
+<div class="intro">
+  Use os prompts como <strong>pontos de partida</strong>. Substitua os campos entre
+  colchetes pelas informações do seu estudo. A IA pode ajudar a estruturar,
+  comparar, questionar e revisar — mas as decisões científicas e a verificação
+  das evidências continuam sendo responsabilidade do pesquisador.
+</div>
+<div class="notice">
+  <strong>Regra prática:</strong> não peça apenas “faça minha pesquisa”. Diga
+  <strong>quem você é, o que quer alcançar, o contexto, as restrições e como deseja
+  receber o resultado</strong>. Quando necessário, forneça exemplos.
+</div>
+</section>
+
+<section class="section" id="pergunta">
+<h2>01 · Pergunta de pesquisa e hipótese</h2>
+<div class="grid">
+
+<div class="task"><span class="num">1</span><h3>Explorar um tema</h3><p>Transformar um tema amplo em possibilidades investigáveis.</p>
+<div class="prompt">Estou planejando uma pesquisa em Nutrição sobre [tema].
+Não escreva o projeto.
+Ajude-me a identificar possíveis problemas de pesquisa, variáveis, populações, desfechos e hipóteses. Para cada possibilidade, indique quais decisões ainda precisam ser tomadas pelo pesquisador.</div></div>
+
+<div class="task"><span class="num">2</span><h3>Delimitar o problema</h3><div class="prompt">Tenho o seguinte tema: [tema].
+Ajude-me a transformá-lo em um problema de pesquisa específico, delimitando população, exposição/intervenção, desfecho, contexto e período. Apresente alternativas e explique as implicações de cada delimitação.</div></div>
+
+<div class="task"><span class="num">3</span><h3>Construir PICO</h3><div class="prompt">Quero investigar [tema/intervenção].
+Estruture a pergunta usando PICO: População, Intervenção, Comparação e Outcome/Desfecho. Mostre quais elementos estão definidos e quais ainda precisam ser decididos.</div></div>
+
+<div class="task"><span class="num">4</span><h3>Construir PECO</h3><div class="prompt">Quero investigar a associação entre [exposição] e [desfecho] em [população].
+Estruture a pergunta usando PECO. Não assuma causalidade. Indique possíveis confundidores que deverão ser considerados.</div></div>
+
+<div class="task"><span class="num">5</span><h3>Gerar hipóteses</h3><div class="prompt">Para a pergunta de pesquisa “[pergunta]”, proponha hipóteses testáveis. Diferencie hipótese principal, hipóteses secundárias e possíveis hipóteses nulas. Não invente evidências para justificá-las.</div></div>
+
+<div class="task"><span class="num">6</span><h3>Questionar uma hipótese</h3><div class="prompt">Minha hipótese é: “[hipótese]”.
+Atue como um pesquisador crítico. Identifique pressupostos, possíveis explicações alternativas, variáveis omitidas e condições sob as quais a hipótese poderia não se sustentar.</div></div>
+
+</div></section>
+
+<section class="section" id="literatura">
+<h2>02 · Literatura, evidências e lacunas</h2>
+<div class="grid">
+
+<div class="task"><span class="num">7</span><h3>Mapear conceitos</h3><div class="prompt">Para o tema [tema], construa um mapa conceitual textual com os principais conceitos, variáveis e relações que deveriam ser considerados em uma revisão de literatura.</div></div>
+
+<div class="task"><span class="num">8</span><h3>Gerar termos de busca</h3><div class="prompt">Para a pergunta “[pergunta]”, gere termos de busca em português e inglês, incluindo sinônimos, termos relacionados e possíveis descritores. Organize-os em blocos para combinar com AND/OR.</div></div>
+
+<div class="task"><span class="num">9</span><h3>Construir estratégia de busca</h3><div class="prompt">Ajude-me a construir uma estratégia de busca para [base de dados] sobre “[tema]”. Separe população, exposição/intervenção, desfecho e termos alternativos. Não invente descritores específicos sem indicar que precisam ser conferidos na base.</div></div>
+
+<div class="task"><span class="num">10</span><h3>Encontrar conceitos relacionados</h3><div class="prompt">Quais conceitos científicos estão diretamente relacionados a [tema]? Para cada conceito, explique por que ele pode ser relevante para a pergunta “[pergunta]”.</div></div>
+
+<div class="task"><span class="num">11</span><h3>Identificar lacunas</h3><div class="prompt">Com base nos estudos e informações que eu fornecer, ajude-me a identificar possíveis lacunas na literatura. Diferencie claramente o que é demonstrado pelos estudos, o que é uma interpretação e o que ainda precisa ser investigado.</div></div>
+
+<div class="task"><span class="num">12</span><h3>Comparar estudos</h3><div class="prompt">Compare os estudos abaixo quanto a população, desenho, exposição/intervenção, desfecho, tamanho amostral, principais resultados, limitações e implicações. Não atribua maior qualidade sem apresentar os critérios usados.</div></div>
+
+<div class="task"><span class="num">13</span><h3>Avaliar uma evidência</h3><div class="prompt">Analise este estudo [texto/referência]. Identifique desenho, população, exposição/intervenção, desfecho, principais resultados, limitações e quais conclusões são realmente sustentadas pelos dados.</div></div>
+
+<div class="task"><span class="num">14</span><h3>Verificar uma afirmação</h3><div class="prompt">Tenho a afirmação: “[afirmação]”.
+Ajude-me a determinar que tipo de evidência científica seria necessária para sustentá-la. Não transforme uma referência apenas relacionada ao tema em evidência da afirmação.</div></div>
+
+</div></section>
+
+<section class="section" id="metodo">
+<h2>03 · Metodologia e desenho do estudo</h2>
+<div class="grid">
+
+<div class="task"><span class="num">15</span><h3>Escolher desenho</h3><div class="prompt">Minha pergunta de pesquisa é “[pergunta]”.
+Compare os desenhos de estudo que poderiam respondê-la. Para cada um, apresente vantagens, limitações, principais vieses e quais decisões metodológicas eu precisaria tomar.</div></div>
+
+<div class="task"><span class="num">16</span><h3>Definir população</h3><div class="prompt">Para a pergunta “[pergunta]”, ajude-me a definir a população-alvo e a população de estudo. Aponte critérios que precisam ser especificados e possíveis problemas de representatividade.</div></div>
+
+<div class="task"><span class="num">17</span><h3>Critérios de inclusão/exclusão</h3><div class="prompt">Proponha alternativas de critérios de inclusão e exclusão para um estudo sobre [tema]. Para cada critério, explique qual objetivo metodológico ele atende e quais consequências pode produzir.</div></div>
+
+<div class="task"><span class="num">18</span><h3>Definir variáveis</h3><div class="prompt">Para a pergunta “[pergunta]”, identifique possíveis variável(is) de exposição/intervenção, desfecho, confundidores, mediadores e modificadores de efeito. Explique a diferença entre essas categorias.</div></div>
+
+<div class="task"><span class="num">19</span><h3>Operacionalizar variáveis</h3><div class="prompt">Tenho a variável conceitual [variável].
+Sugira formas de operacionalizá-la em um estudo de Nutrição. Para cada opção, apresente vantagens, limitações e possíveis fontes de erro de mensuração.</div></div>
+
+<div class="task"><span class="num">20</span><h3>Identificar confundidores</h3><div class="prompt">Para investigar a associação entre [exposição] e [desfecho], liste potenciais confundidores plausíveis. Explique por que cada um poderia confundir a associação e quais informações seriam necessárias para avaliá-lo.</div></div>
+
+<div class="task"><span class="num">21</span><h3>Identificar vieses</h3><div class="prompt">Analise este desenho de estudo: [descrição].
+Identifique possíveis vieses de seleção, informação, mensuração, memória, classificação e outros que sejam pertinentes. Explique como cada viés poderia afetar os resultados.</div></div>
+
+<div class="task"><span class="num">22</span><h3>Revisar metodologia</h3><div class="prompt">Atue como um revisor metodológico. Leia a metodologia abaixo e procure inconsistências entre pergunta, hipótese, desenho, população, variáveis, coleta e análise. Não reescreva ainda; primeiro liste os problemas e explique cada um.</div></div>
+
+</div></section>
+
+<section class="section" id="dados">
+<h2>04 · Dados, estatística e programação</h2>
+<div class="grid">
+
+<div class="task"><span class="num">23</span><h3>Entender um dataset</h3><div class="prompt">Tenho um banco de dados sobre [tema]. Ajude-me a entender as variáveis, seus tipos, unidades, possíveis valores inválidos e valores ausentes. Não faça inferências que não possam ser obtidas a partir do dicionário de dados.</div></div>
+
+<div class="task"><span class="num">24</span><h3>Planejar análise exploratória</h3><div class="prompt">Para a pergunta “[pergunta]” e o banco descrito abaixo, proponha uma análise exploratória. Organize as etapas e explique o objetivo de cada uma.</div></div>
+
+<div class="task"><span class="num">25</span><h3>Escolher teste estatístico</h3><div class="prompt">Tenho as variáveis [X] e [Y], com os tipos [tipos].
+Quais métodos estatísticos poderiam ser considerados para investigar sua relação? Explique os pressupostos de cada alternativa. Não escolha um método apenas pelo nome das variáveis.</div></div>
+
+<div class="task"><span class="num">26</span><h3>Interpretar tabela</h3><div class="prompt">Interprete a tabela abaixo de forma estatisticamente cuidadosa. Diferencie descrição, associação estatística e causalidade. Aponte também o que não pode ser concluído a partir da tabela.</div></div>
+
+<div class="task"><span class="num">27</span><h3>Interpretar regressão</h3><div class="prompt">Explique os resultados desta regressão para um pesquisador de Nutrição. Defina o significado das estimativas, intervalos de confiança e p-valores apresentados. Não extrapole além do desenho do estudo.</div></div>
+
+<div class="task"><span class="num">28</span><h3>Detectar problemas nos dados</h3><div class="prompt">Analise esta descrição/tabela do banco e procure valores ausentes, inconsistências, categorias inesperadas, possíveis outliers e problemas de codificação. Para cada problema, sugira como verificar antes de corrigi-lo.</div></div>
+
+<div class="task"><span class="num">29</span><h3>Gerar código</h3><div class="prompt">Escreva código em [Python/R] para realizar [análise].
+Explique cada etapa e inclua verificações dos pressupostos. Não invente nomes de variáveis: use exatamente os nomes fornecidos.</div></div>
+
+<div class="task"><span class="num">30</span><h3>Validar código</h3><div class="prompt">Revise este código estatístico como um segundo pesquisador. Procure erros de sintaxe, lógica, seleção de variáveis, tratamento de ausentes, escolha do método e interpretação. Explique o que precisa ser validado empiricamente.</div></div>
+
+<div class="task"><span class="num">31</span><h3>Questionar uma análise</h3><div class="prompt">Atue como um revisor estatístico crítico. Analise o procedimento descrito abaixo e identifique decisões que poderiam produzir conclusões incorretas ou excessivamente fortes.</div></div>
+
+</div>
+<div class="notice"><strong>Atenção:</strong> código que executa não significa que a análise esteja correta. O código também precisa ser validado, assim como os pressupostos, dados e interpretação.</div>
+</section>
+
+<section class="section" id="escrita">
+<h2>05 · Escrita científica</h2>
+<div class="grid">
+
+<div class="task"><span class="num">32</span><h3>Estruturar a introdução</h3><div class="prompt">Estou escrevendo um artigo científico sobre [tema].
+Não escreva a introdução.
+Ajude-me a construir sua estrutura argumentativa: contexto geral, problema, lacuna na literatura, relevância e objetivo. Para cada etapa, explique que tipo de evidência científica deveria sustentá-la.</div></div>
+
+<div class="task"><span class="num">33</span><h3>Construir argumento</h3><div class="prompt">Tenho a seguinte afirmação central: “[afirmação]”.
+Ajude-me a construir uma cadeia argumentativa que mostre quais premissas e evidências seriam necessárias para sustentá-la.</div></div>
+
+<div class="task"><span class="num">34</span><h3>Melhorar clareza</h3><div class="prompt">Revise o texto abaixo quanto à clareza, precisão e coerência científica. Preserve o significado e não acrescente informações ou referências que não estejam no texto.</div></div>
+
+<div class="task"><span class="num">35</span><h3>Organizar parágrafo</h3><div class="prompt">Analise este parágrafo científico. Identifique frase temática, evidências, explicações e conclusão. Sugira uma ordem mais coerente sem escrever um novo conteúdo científico.</div></div>
+
+<div class="task"><span class="num">36</span><h3>Conectar parágrafos</h3><div class="prompt">Analise a transição entre estes dois parágrafos. Identifique se existe uma lacuna lógica e sugira maneiras de melhorar a conexão sem introduzir novas afirmações.</div></div>
+
+<div class="task"><span class="num">37</span><h3>Resumir sem distorcer</h3><div class="prompt">Resuma o texto abaixo mantendo as principais informações, limitações e qualificadores. Não transforme associações em causalidade e não elimine ressalvas importantes.</div></div>
+
+<div class="task"><span class="num">38</span><h3>Adaptar linguagem</h3><div class="prompt">Adapte este texto para linguagem científica clara e adequada a um artigo de Nutrição. Preserve o conteúdo, evite exageros e não acrescente evidências.</div></div>
+
+<div class="task"><span class="num">39</span><h3>Revisar abstract</h3><div class="prompt">Atue como editor científico. Avalie este resumo quanto à coerência entre objetivo, método, resultados e conclusão. Liste problemas antes de sugerir correções.</div></div>
+
+</div></section>
+
+<section class="section" id="revisao">
+<h2>06 · Revisão crítica e preparação para publicação</h2>
+<div class="grid">
+
+<div class="task"><span class="num">40</span><h3>Revisor hostil</h3><div class="prompt">Atue como um revisor científico rigoroso e cético. Procure problemas metodológicos, argumentos sem evidência, conclusões exageradas, inconsistências e informações que precisam ser verificadas. Seja específico e indique onde está cada problema.</div></div>
+
+<div class="task"><span class="num">41</span><h3>Verificar coerência</h3><div class="prompt">Compare pergunta, hipótese, método, resultados e conclusão deste manuscrito. Identifique inconsistências ou partes que não respondem diretamente à pergunta de pesquisa.</div></div>
+
+<div class="task"><span class="num">42</span><h3>Procurar causalidade indevida</h3><div class="prompt">Leia este texto e identifique afirmações que impliquem causalidade sem que o desenho do estudo necessariamente permita essa conclusão. Sugira formulações mais compatíveis com os dados.</div></div>
+
+<div class="task"><span class="num">43</span><h3>Revisar limitações</h3><div class="prompt">Analise as limitações apresentadas neste estudo. Identifique limitações importantes que podem estar faltando e explique por que elas são relevantes.</div></div>
+
+<div class="task"><span class="num">44</span><h3>Preparar resposta ao parecerista</h3><div class="prompt">Recebi o seguinte comentário de um parecerista: “[comentário]”.
+Ajude-me a interpretar exatamente o que está sendo solicitado e liste possíveis formas de responder. Não invente justificativas ou dados.</div></div>
+
+<div class="task"><span class="num">45</span><h3>Checar consistência das referências</h3><div class="prompt">Compare as citações no texto com a lista de referências que fornecerei. Identifique referências citadas sem entrada bibliográfica, entradas não citadas e inconsistências de autoria, ano ou título. Não invente dados bibliográficos ausentes.</div></div>
+
+<div class="task"><span class="num">46</span><h3>Preparar checklist de submissão</h3><div class="prompt">Com base nas instruções para autores da revista [revista], transforme os requisitos fornecidos em um checklist de submissão. Não suponha regras que não estejam nas instruções.</div></div>
+
+<div class="task"><span class="num">47</span><h3>Adaptar ao periódico</h3><div class="prompt">Compare meu manuscrito com as instruções para autores fornecidas pela revista [revista]. Identifique diferenças de estrutura, extensão, formatação e elementos obrigatórios. Não altere o conteúdo científico sem minha autorização.</div></div>
+
+<div class="task"><span class="num">48</span><h3>Identificar informações faltantes</h3><div class="prompt">Leia esta seção do manuscrito e liste informações que um leitor ou parecerista provavelmente precisaria para compreender e avaliar o estudo. Diferencie informação ausente de informação que simplesmente não é necessária.</div></div>
+
+<div class="task"><span class="num">49</span><h3>Testar interpretações alternativas</h3><div class="prompt">Meu resultado principal foi: “[resultado]”.
+Apresente interpretações alternativas plausíveis e indique quais dados ou análises seriam necessários para distingui-las. Não escolha uma interpretação sem justificativa.</div></div>
+
+<div class="task"><span class="num">50</span><h3>Preparar para publicação</h3><div class="prompt">Faça uma revisão final deste manuscrito como um pesquisador e editor. Organize os problemas encontrados em: evidência, método, análise, interpretação, escrita, referências e conformidade editorial. Priorize os pontos que precisam ser resolvidos antes da submissão.</div></div>
+
+</div></section>
+
+<section class="section" id="50">
+<h2>2. 50 coisas que você pode pedir para uma IA fazer na pesquisa científica</h2>
+<input class="search" id="search50" placeholder="🔎 Procure uma tarefa...">
+<div class="fifty" id="fiftyList">
+<div class="item"><strong>01</strong><span>Explorar um tema amplo.</span></div>
+<div class="item"><strong>02</strong><span>Transformar um tema em problemas de pesquisa.</span></div>
+<div class="item"><strong>03</strong><span>Delimitar população, exposição e desfecho.</span></div>
+<div class="item"><strong>04</strong><span>Estruturar uma pergunta PICO.</span></div>
+<div class="item"><strong>05</strong><span>Estruturar uma pergunta PECO.</span></div>
+<div class="item"><strong>06</strong><span>Gerar hipóteses testáveis.</span></div>
+<div class="item"><strong>07</strong><span>Questionar pressupostos de uma hipótese.</span></div>
+<div class="item"><strong>08</strong><span>Mapear conceitos relacionados ao tema.</span></div>
+<div class="item"><strong>09</strong><span>Gerar palavras-chave e sinônimos.</span></div>
+<div class="item"><strong>10</strong><span>Montar estratégias de busca bibliográfica.</span></div>
+<div class="item"><strong>11</strong><span>Identificar conceitos próximos ou relacionados.</span></div>
+<div class="item"><strong>12</strong><span>Organizar estudos encontrados em uma matriz.</span></div>
+<div class="item"><strong>13</strong><span>Comparar desenhos de estudos.</span></div>
+<div class="item"><strong>14</strong><span>Identificar possíveis lacunas na literatura.</span></div>
+<div class="item"><strong>15</strong><span>Identificar que tipo de evidência sustenta uma afirmação.</span></div>
+<div class="item"><strong>16</strong><span>Criticar uma interpretação de um artigo.</span></div>
+<div class="item"><strong>17</strong><span>Explicar conceitos metodológicos.</span></div>
+<div class="item"><strong>18</strong><span>Comparar alternativas de desenho de estudo.</span></div>
+<div class="item"><strong>19</strong><span>Definir população-alvo e população de estudo.</span></div>
+<div class="item"><strong>20</strong><span>Discutir critérios de inclusão e exclusão.</span></div>
+<div class="item"><strong>21</strong><span>Identificar variáveis de exposição e desfecho.</span></div>
+<div class="item"><strong>22</strong><span>Identificar potenciais confundidores.</span></div>
+<div class="item"><strong>23</strong><span>Identificar mediadores e modificadores de efeito.</span></div>
+<div class="item"><strong>24</strong><span>Discutir formas de operacionalizar variáveis.</span></div>
+<div class="item"><strong>25</strong><span>Identificar possíveis vieses.</span></div>
+<div class="item"><strong>26</strong><span>Planejar uma análise exploratória.</span></div>
+<div class="item"><strong>27</strong><span>Explicar uma estrutura de banco de dados.</span></div>
+<div class="item"><strong>28</strong><span>Identificar problemas de qualidade dos dados.</span></div>
+<div class="item"><strong>29</strong><span>Sugerir análises estatísticas possíveis.</span></div>
+<div class="item"><strong>30</strong><span>Explicar pressupostos de um teste estatístico.</span></div>
+<div class="item"><strong>31</strong><span>Gerar código para análise de dados.</span></div>
+<div class="item"><strong>32</strong><span>Revisar código estatístico.</span></div>
+<div class="item"><strong>33</strong><span>Interpretar tabelas e gráficos.</span></div>
+<div class="item"><strong>34</strong><span>Interpretar resultados de modelos estatísticos.</span></div>
+<div class="item"><strong>35</strong><span>Questionar conclusões derivadas dos dados.</span></div>
+<div class="item"><strong>36</strong><span>Estruturar a introdução de um artigo.</span></div>
+<div class="item"><strong>37</strong><span>Construir uma cadeia argumentativa.</span></div>
+<div class="item"><strong>38</strong><span>Melhorar clareza e precisão do texto.</span></div>
+<div class="item"><strong>39</strong><span>Organizar parágrafos e transições.</span></div>
+<div class="item"><strong>40</strong><span>Revisar um resumo científico.</span></div>
+<div class="item"><strong>41</strong><span>Atuar como revisor crítico.</span></div>
+<div class="item"><strong>42</strong><span>Identificar conclusões causais indevidas.</span></div>
+<div class="item"><strong>43</strong><span>Questionar limitações de um estudo.</span></div>
+<div class="item"><strong>44</strong><span>Preparar respostas a pareceristas.</span></div>
+<div class="item"><strong>45</strong><span>Conferir consistência entre citações e referências.</span></div>
+<div class="item"><strong>46</strong><span>Transformar instruções de uma revista em checklist.</span></div>
+<div class="item"><strong>47</strong><span>Comparar um manuscrito com as instruções do periódico.</span></div>
+<div class="item"><strong>48</strong><span>Identificar informações ausentes no manuscrito.</span></div>
+<div class="item"><strong>49</strong><span>Explorar interpretações alternativas para um resultado.</span></div>
+<div class="item"><strong>50</strong><span>Fazer uma revisão final antes da submissão.</span></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Como usar este banco</h2>
+<div class="intro">
+  <strong>Não copie o prompt cegamente.</strong> Adapte-o ao seu problema, forneça
+  contexto suficiente e deixe claras as restrições. Para tarefas críticas, peça à
+  IA para separar <strong>fatos, interpretações, incertezas e decisões que ainda dependem
+  do pesquisador</strong>.
+</div>
+<div class="notice">
+  <strong>Regra de ouro:</strong> a IA pode ajudar a encontrar possibilidades,
+  estruturar argumentos, analisar dados e revisar um trabalho. Ela não substitui
+  a leitura da literatura, a validação dos resultados ou a responsabilidade científica.
+</div>
+</section>
+
+<footer class="footer">
+  IA Generativa na Pesquisa Científica em Nutrição · Use a IA para pensar melhor, e não para pensar no seu lugar.
+</footer>
+
+</main>
+
+<script>
+document.querySelectorAll('.copy').forEach(button=>{
+  button.addEventListener('click', async ()=>{
+    const prompt = button.parentElement.querySelector('.prompt').innerText;
+    try{
+      await navigator.clipboard.writeText(prompt);
+      const old = button.textContent;
+      button.textContent = 'Copiado!';
+      setTimeout(()=>button.textContent=old,1500);
+    }catch(e){}
+  });
+});
+
+const search=document.getElementById('search50');
+const items=[...document.querySelectorAll('#fiftyList .item')];
+search.addEventListener('input',()=>{
+  const q=search.value.toLowerCase().trim();
+  items.forEach(item=>{
+    item.style.display=item.innerText.toLowerCase().includes(q)?'flex':'none';
+  });
+});
+</script>
+</body>
+</html>
